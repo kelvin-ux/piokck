@@ -9,34 +9,91 @@ header{
     background-color: #1a1d3f;
     padding: 1rem;
 }
-nav ul{
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+}
+
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: space-around;
 }
-nav ul li a{
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
     color: #fff;
     text-decoration: none;
 }
-nav ul li .sign-up{
+
+nav ul li .sign-up {
     background-color: #ff5b60;
     padding: 0.5rem 1rem;
     border-radius: 5px;
 }
+
 #first{
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 20rem 1rem;
     background: url('images/poi.jpg') no-repeat center center;
     background-size: cover;
 }
 #first h1{
+    color: #ffffff;
+    position: relative;
+    margin-top: 200px;
     font-size: 2.5rem;
 }
 #first p{
     margin: 2rem 0;
 }
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: orange; }
+}
+
+.animated-text {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid orange;
+    width: 0;
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+}
+.email-signup {
+    margin: 2rem 0;
+}
+
+.email-input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+}
+
+.signup-button {
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 #what-we-do, #blog{
     padding: 2rem 1rem;
 }
