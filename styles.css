@@ -1,14 +1,58 @@
 body {
-    font-family: 'Courier New', Courier, monospace;;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #0b0e27;
     color: #fff;
+    scroll-behavior: smooth; 
+    font-family: 'Courier New', Courier, monospace;
 }
 
 header {
     background-color: #1a1d3f;
     padding: 1rem;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    transition: opacity 0.5s ease, box-shadow 0.5s ease; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8); 
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #2c2f33;
+    box-shadow: 0 4px 2px -2px gray;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.header ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header ul li {
+    margin: 0 15px;
+}
+
+.header ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.header ul li a:hover {
+    color: #f39c12;
+}
+
+.header ul li a i {
+    font-size: 20px;
 }
 
 nav {
@@ -41,10 +85,15 @@ nav ul li .sign-up {
     border-radius: 5px;
 }
 
-#first {
+#first, #second {
     display: flex;
     height: 100vh;
     position: relative;
+    padding-top: 2rem; 
+}
+
+#first {
+    flex-direction: row;
 }
 
 .left-content {
@@ -54,16 +103,8 @@ nav ul li .sign-up {
     justify-content: center;
     padding: 2rem;
     margin-left: 2rem;
-    margin-top: -35rem;
+    margin-top: -3rem;
 }
-
-.right-content {
-    flex: 0 0 65%; 
-    background-size: cover;
-    background-position: center;
-    transition: background-image 1s ease-in-out;
-}
-
 
 .text-container {
     width: 45ch;
@@ -71,7 +112,6 @@ nav ul li .sign-up {
 }
 
 .animated-text {
-    font-family: 'Courier New', Courier, monospace;
     font-size: 2.5rem;
     overflow: hidden;
     white-space: nowrap;
@@ -82,12 +122,10 @@ nav ul li .sign-up {
 }
 
 .subtext {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #ccc;
     margin-bottom: 2rem;
 }
-
 
 .email-signup {
     display: flex;
@@ -99,7 +137,6 @@ nav ul li .sign-up {
 }
 
 .email-input {
-    font-family: 'Courier New', Courier, monospace;;
     flex: 1;
     padding: 0.75rem;
     border: none;
@@ -116,7 +153,6 @@ nav ul li .sign-up {
 }
 
 .signup-button {
-    font-family: 'Courier New', Courier, monospace;
     background-color: #ff5b60;
     color: #fff;
     padding: 0.75rem 1.5rem;
@@ -127,7 +163,7 @@ nav ul li .sign-up {
 }
 
 .right-content {
-    flex: 1;
+    flex: 0 0 70%;
     background-size: cover;
     background-position: center;
     transition: background-image 1s ease-in-out;
@@ -135,15 +171,18 @@ nav ul li .sign-up {
 
 .features, .blog-posts {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start; 
 }
 
 .feature, .post {
     background-color: #1a1d3f;
     padding: 1rem;
     border-radius: 5px;
-    width: 30%;
+    width: 100%; 
+    margin-bottom: 1rem; 
 }
+
 
 footer {
     background-color: #1a1d3f;
@@ -154,13 +193,14 @@ footer {
 
 @keyframes typing {
     from { width: 0; }
-    to { width: 18ch; }
+    to { width: 45ch; }
 }
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: orange; }
 }
+
 
 #what-we-do, #blog{
     padding: 2rem 1rem;

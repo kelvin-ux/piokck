@@ -7,12 +7,13 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <nav>
             <ul class="nav-left">
-                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
                 <li><a href="subsites/info.html">Ogłoszenia</a></li>
                 <li><a href="subsites/koreprtycje.html">Korki</a></li>
                 <li><a href="subsites/metody.html">Metody Nauczanie</a></li>
@@ -24,55 +25,59 @@
             </ul>
         </nav>
     </header>
-    <section id="first">
-        <div class="left-content">
-            <div class="text-container">
-                <h1 id="animated-text" class="animated-text">Witamy na Poly!</h1>
-                <p class="subtext">Witamy na stronie Poly, gdzie znajdziesz wiele przydatnych informacji.</p>
+    <div class="s1">
+        <section id="first">
+            <div class="left-content">
+                <div class="text-container">
+                    <h1 id="animated-text" class="animated-text">Witamy na Poly!</h1>
+                    <p class="subtext">Witamy na stronie Poly, gdzie znajdziesz wiele przydatnych informacji.</p>
+                </div>
+                <div class="email-signup">
+                    <input type="email" class="email-input" placeholder="Twój adres e-mail">
+                    <button class="signup-button">Zaczynamy!</button>
+                </div>
             </div>
-            <div class="email-signup">
-                <input type="email" class="email-input" placeholder="Twój adres e-mail">
-                <button class="signup-button">Zaczynamy!</button>
+            <div class="right-content"></div>
+        </section>
+    </div>
+    
+    <div class="s2">
+        <section id="what-we-do">
+            <h2>Czym się zajmujemy?</h2>
+            <p>Nieskończone możliwości na wyciągnięcie ręki</p>
+            <div class="features">
+                <div class="feature">
+                    <h3>Korepetycje</h3>
+                    <p>Mamy listę ogłoszeń ponad 1000 korepetytorów</p>
+                </div>
+                <div class="feature">
+                    <h3>Metody Nauczanie</h3>
+                    <p>Zgromadziliśmy bazę spostrzeżeń jak się efektywnie uczyć</p>
+                </div>
+                <div class="feature">
+                    <h3>Baza Wiedzy</h3>
+                    <p>Mamy też zgromadzone materiały naukowe z ostatnich 15 lat</p>
+                </div>
             </div>
-        </div>
-        <div class="right-content"></div>
-    </section>
-           
-    <section id="what-we-do">
-        <h2>Czym się zajmujemy?</h2>
-        <p>Nieskończone możliwości na wyciągnięcie ręki</p>
-        <div class="features">
-            <div class="feature">
-                <h3>Korepetycje</h3>
-                <p>Mamy listę ogłoszeń ponad 1000 korepetytorów</p>
+        </section>
+        <section id="blog">
+            <h2>Najciekawsze newsy</h2>
+            <div class="blog-posts">
+                <div class="post">
+                    <h3>P1</h3>
+                    <p>OP1</p>
+                </div>
+                <div class="post">
+                    <h3>P1</h3>
+                    <p>OP1</p>
+                </div>
+                <div class="post">
+                    <h3>P1</h3>
+                    <p>OP1</p>
+                </div>
             </div>
-            <div class="feature">
-                <h3>Metody Nauczanie</h3>
-                <p>Zgromadziliśmy bazę spostrzeżeń jak się efektywnie uczyć</p>
-            </div>
-            <div class="feature">
-                <h3>Baza Wiedzy</h3>
-                <p>Mamy też zgromadzone materiały naukowe z ostatnich 15 lat</p>
-            </div>
-        </div>
-    </section>
-    <section id="blog">
-        <h2>Najciekawsze newsy</h2>
-        <div class="blog-posts">
-            <div class="post">
-                <h3>P1</h3>
-                <p>OP1</p>
-            </div>
-            <div class="post">
-                <h3>P1</h3>
-                <p>OP1</p>
-            </div>
-            <div class="post">
-                <h3>P1</h3>
-                <p>OP1</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>     
     <footer>&copy; 2024 Poly. All rights reserved</footer>
     <script src='script.js'></script>
 </body>

@@ -9,9 +9,8 @@ function restartAnimation() {
     textElement.classList.add('animated-text');
 }
 
-setInterval(restartAnimation, refreshRateText); // 15 s delay to rewrite #first
+setInterval(restartAnimation, refreshRateText); // 15 s delay
 
-// Background image carousel
 const images = [
     'images/poi1.jpg',
     'images/poi2.jpg',
@@ -25,6 +24,28 @@ function changeBackgroundImage() {
     rightContent.style.backgroundImage = `url(${images[currentIndex]})`;
 }
 
-setInterval(changeBackgroundImage, refreshRateImage); 
+setInterval(changeBackgroundImage, refreshRateImage); //5 sek delay
 
 rightContent.style.backgroundImage = `url(${images[0]})`;
+
+window.addEventListener('scroll', function() {
+    const section1 = document.querySelector('.s1');
+    const section2 = document.querySelector('.s2');
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+  
+    if (scrollPosition < section2.offsetTop) {
+      window.scrollTo({ top: section1.offsetTop, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: section2.offsetTop, behavior: 'smooth' });
+    }
+  });
+
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const opacity = Math.min(1, window.scrollY / 200);
+    if(opacity < 1)
+        {
+            opacity = 1;
+        }
+    header.style.opacity = opacity;
+});
