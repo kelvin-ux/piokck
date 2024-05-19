@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;;
     margin: 0;
     padding: 0;
     background-color: #0b0e27;
@@ -71,6 +71,7 @@ nav ul li .sign-up {
 }
 
 .animated-text {
+    font-family: 'Courier New', Courier, monospace;
     font-size: 2.5rem;
     overflow: hidden;
     white-space: nowrap;
@@ -79,6 +80,14 @@ nav ul li .sign-up {
     animation: typing 3s steps(20, end);
     margin-bottom: 1rem;
 }
+
+.subtext {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
 
 .email-signup {
     display: flex;
@@ -90,6 +99,7 @@ nav ul li .sign-up {
 }
 
 .email-input {
+    font-family: 'Courier New', Courier, monospace;;
     flex: 1;
     padding: 0.75rem;
     border: none;
@@ -106,6 +116,7 @@ nav ul li .sign-up {
 }
 
 .signup-button {
+    font-family: 'Courier New', Courier, monospace;
     background-color: #ff5b60;
     color: #fff;
     padding: 0.75rem 1.5rem;
