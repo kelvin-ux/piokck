@@ -41,16 +41,23 @@ header {
   margin: 0 15px;
 }
 
-.header ul li a {
+header ul li a {
   text-decoration: none;
   color: #ffffff;
   font-size: 18px;
-  transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.header ul li a:hover {
-  color: #f39c12;
+header ul li a:hover {
+  color: #ff5b60;
+  transform: scale(1.1);
 }
+
+header ul li .sign-up:hover {
+  background-color: #ff3b40;
+  transform: scale(1.1);
+}
+
 
 .header ul li a i {
   font-size: 20px;
@@ -285,7 +292,7 @@ nav ul li .sign-up {
 
 #blog h2 {
   font-size: 2.5rem;
-  color: #ff5b60;
+  /* color: #ff5b60; */
   margin-bottom: 2rem;
 }
 
@@ -296,13 +303,13 @@ nav ul li .sign-up {
   justify-content: end;
   width: 100%;
   align-items:flex-start;
-  border: purple solid 1px;
+  /* border: purple solid 1px; */
   gap: 2rem;
 }
 .small-posts {
   position: relative;
   display: flex;
-  border: red solid 1px;
+  /* border: red solid 1px; */
 }
 .post {
   background-color: #1a1d3f;

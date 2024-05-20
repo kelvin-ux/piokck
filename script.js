@@ -28,28 +28,28 @@ setInterval(changeBackgroundImage, refreshRateImage); //5 sek delay
 
 rightContent.style.backgroundImage = `url(${images[0]})`;
 
-// window.addEventListener('scroll', function() {
-//     const section1 = document.querySelector('.s1');
-//     const section2 = document.querySelector('.s2');
-//     const section3 = document.querySelector('.s3');
-//     const scrollPosition = window.scrollY + window.innerHeight / 2;
+window.addEventListener('scroll', function() {
+    const section1 = document.querySelector('.s1');
+    const section2 = document.querySelector('.s2');
+    const section3 = document.querySelector('.s3');
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-//     if (scrollPosition < section2.offsetTop) {
-//         window.scrollTo({ top: section1.offsetTop, behavior: 'smooth' });
-//     } else if (scrollPosition < section3.offsetTop) {
-//         window.scrollTo({ top: section2.offsetTop, behavior: 'smooth' });
-//     } else {
-//         window.scrollTo({ top: section3.offsetTop, behavior: 'smooth' });
-//     }
-// });
+    if (scrollPosition < section2.offsetTop) {
+        window.scrollTo({ top: section1.offsetTop, behavior: 'smooth' });
+    } else if (scrollPosition < section3.offsetTop) {
+        window.scrollTo({ top: section2.offsetTop, behavior: 'smooth' });
+    } else {
+        window.scrollTo({ top: section3.offsetTop, behavior: 'smooth' });
+    }
+});
 
 
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const opacity = Math.min(1, window.scrollY / 200);
-    if(opacity < 1)
+    if(opacity < 0.85)
         {
-            opacity = 1;
+            opacity = 0.85;
         }
     header.style.opacity = opacity;
 });
