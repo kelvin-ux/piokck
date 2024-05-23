@@ -42,3 +42,28 @@ window.addEventListener('scroll', function() {
         window.scrollTo({ top: section3.offsetTop, behavior: 'smooth' });
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginButton = document.querySelector('.nav-right a[href="subsites/login.html"]');
+    const popup = document.getElementById('login-popup');
+    const closeButton = document.querySelector('.close-btn');
+
+    loginButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('popup-open');
+        popup.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', () => {
+        document.body.classList.remove('popup-open');
+        popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            document.body.classList.remove('popup-open');
+            popup.style.display = 'none';
+        }
+    });
+});
