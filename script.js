@@ -42,14 +42,3 @@ window.addEventListener('scroll', function() {
         window.scrollTo({ top: section3.offsetTop, behavior: 'smooth' });
     }
 });
-
-
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const opacity = Math.min(1, window.scrollY / 200);
-    if(opacity < 0.85)
-        {
-            opacity = 0.85;
-        }
-    header.style.opacity = opacity;
-});
