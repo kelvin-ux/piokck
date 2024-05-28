@@ -67,3 +67,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+document.getElementById('loginBtn').addEventListener('click', function() {
+    document.querySelector('.popup').style.display = 'block';
+    document.body.classList.add('popup-open');
+});
+
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.querySelector('.popup').style.display = 'none';
+    document.body.classList.remove('popup-open');
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target == document.querySelector('.popup')) {
+        document.querySelector('.popup').style.display = 'none';
+        document.body.classList.remove('popup-open');
+    }
+});

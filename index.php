@@ -11,15 +11,19 @@
 </head>
 <body>
     <header>
-        <nav>
+    <nav>
             <ul class="nav-left">
-                <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+                <li><a href="index.php"><i class="fas fa-home"></i></a></li>
                 <li><a href="subsites/info.html">Ogłoszenia</a></li>
                 <li><a href="subsites/koreprtycje.html">Korki</a></li>
                 <li><a href="subsites/metody.html">Metody Nauczanie</a></li>
             </ul>
             <ul class="nav-right">
-                <li><a href="subsites/login.html">Logowanie</a></li>
+                <?php if (isset($_SESSION['user'])): ?>
+                    <li><a href="log/logout.php">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="#" id="loginBtn">Logowanie</a></li>
+                <?php endif; ?>
                 <li><a href="subsites/register.html" class="sign-up">Rejestracja</a></li>
                 <li><a href="subsites/edit.html">Edycja profilu</a></li>
             </ul>
@@ -130,7 +134,7 @@
               <img src="blogimg/s1.png" alt="Post Image 5">
               <div class="post-content">
                 <p class="post-date">4, 2021</p>
-                <h3>Dni Otwarte 2024: Prezentacja oferty edukacyjnej dla przyszłych studentów.</h3>
+                <h3>Dni Otwarte 2024</h3>
                 <a href="#" class="read-more">Czytaj więcej</a>
               </div>
             </div>
@@ -139,6 +143,19 @@
       </section>     
     </section>
 
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Zaloguj się</h2>
+            <form method="post" action="log/login.php">
+                <label for="username">Nazwa użytkownika:</label>
+                <input type="text" id="username" name="email" required>
+                <label for="password">Hasło:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Zaloguj się</button>
+            </form>
+        </div>
     </div>
     <footer>&copy; 2024 Poly. All rights reserved</footer>
     <script src='script.js'></script>
