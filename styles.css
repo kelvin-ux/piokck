@@ -122,8 +122,8 @@ body.popup-open {
   margin: 5% auto;
   padding: 30px;
   border: 1px solid #888;
-  width: 50%; /* Increased width */
-  height: auto; /* Adjust height */
+  width: 50%;
+  height: auto;
   max-width: 800px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);

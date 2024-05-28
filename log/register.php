@@ -1,22 +1,23 @@
-<?php 
-    include 'db.php';
+<?php
+include 'db.php';
 
-if($_SERVER["REQUEST_METHOD"] == "POST")
-{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $imie = $_POST['imie'];
+    $nazwisko = $_POST['nazwisko'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $haslo = password_hash($_POST['haslo'], PASSWORD_DEFAULT);
+    $rok_studiow = $_POST['rok_studiow'];
+    $kierunek = $_POST['kierunek'];
 
-    $sql = "INSERT INTO uzytkownicy (Email, Haslo) VALUES ('$email', '$password')";
+    $stmt = $mysqli->prepare("INSERT INTO uzytkownicy (Imie, Nazwisko, Email, Haslo, Rok_studiow, Kierunek) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $imie, $nazwisko, $email, $haslo, $rok_studiow, $kierunek);
 
-    if($conn->query($sql) == TRUE)
-    {
-        echo "New user created";
+    if ($stmt->execute()) {
+        echo "Rejestracja zakończona sukcesem.";
+    } else {
+        echo "Błąd: " . $stmt->error;
     }
-    else
-    {
-        echo "Error" . $sql . "<br>". $conn->error;
-    }
-    $conn->close();
+
+    $stmt->close();
 }
-
 ?>

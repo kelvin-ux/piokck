@@ -1,26 +1,32 @@
 <?php
-    include 'db.php';
-    session_start();
+session_start();
+include 'db.php';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $haslo = $_POST['haslo'];
+
+    $stmt = $mysqli->prepare("SELECT ID_uzytkownika, Imie, Haslo FROM uzytkownicy WHERE Email=?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
     
-        $sql = "SELECT * FROM uzytkownicy WHERE Email='$email'";
-        $result = $conn->query($sql);
-    
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            if (password_verify($password, $row['Haslo'])) {
-                $_SESSION['user_id'] = $row['ID_uzytkownika'];
-                header("Location: index.php");
-            } else {
-                echo "Invalid password.";
-            }
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $imie, $hashed_password);
+        $stmt->fetch();
+        
+        if (password_verify($haslo, $hashed_password)) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['id'] = $id;
+            $_SESSION['imie'] = $imie;
+            header("location: ../index.php");
         } else {
-            echo "No user found with that email.";
+            echo "Nieprawidłowe hasło.";
         }
-    
-        $conn->close();
+    } else {
+        echo "Nie znaleziono użytkownika o podanym adresie email.";
     }
+
+    $stmt->close();
+}
 ?>

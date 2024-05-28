@@ -44,52 +44,69 @@ window.addEventListener('scroll', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const loginBtn = document.getElementById('login-btn');
-    const registerBtn = document.getElementById('register-btn');
-    const loginPopup = document.getElementById('login-popup');
-    const registerPopup = document.getElementById('register-popup');
-    const closeLogin = document.getElementById('close-login');
-    const closeRegister = document.getElementById('close-register');
+document.addEventListener("DOMContentLoaded", function() {
+    const loginBtn = document.getElementById("login-btn");
+    const registerBtn = document.getElementById("register-btn");
+    const loginPopup = document.getElementById("login-popup");
+    const registerPopup = document.getElementById("register-popup");
+    const closeLogin = document.getElementById("close-login");
+    const closeRegister = document.getElementById("close-register");
 
-    loginBtn.addEventListener('click', function() {
-        loginPopup.style.display = 'block';
-        document.body.classList.add('popup-open');
+    loginBtn.addEventListener("click", function() {
+        loginPopup.style.display = "block";
+        document.body.classList.add("popup-open");
     });
 
-    registerBtn.addEventListener('click', function() {
-        registerPopup.style.display = 'block';
-        document.body.classList.add('popup-open');
+    registerBtn.addEventListener("click", function() {
+        registerPopup.style.display = "block";
+        document.body.classList.add("popup-open");
     });
 
-    closeLogin.addEventListener('click', function() {
-        loginPopup.style.display = 'none';
-        document.body.classList.remove('popup-open');
+    closeLogin.addEventListener("click", function() {
+        loginPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
     });
 
-    closeRegister.addEventListener('click', function() {
-        registerPopup.style.display = 'none';
-        document.body.classList.remove('popup-open');
+    closeRegister.addEventListener("click", function() {
+        registerPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
     });
 
-    window.addEventListener('click', function(event) {
-        if (event.target === loginPopup) {
-            loginPopup.style.display = 'none';
-            document.body.classList.remove('popup-open');
+    window.addEventListener("click", function(event) {
+        if (event.target == loginPopup) {
+            loginPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
         }
-        if (event.target === registerPopup) {
-            registerPopup.style.display = 'none';
-            document.body.classList.remove('popup-open');
+        if (event.target == registerPopup) {
+            registerPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
         }
     });
 });
+
+
 
 
 
 document.getElementById('loginBtn').addEventListener('click', function() {
-    document.querySelector('.popup').style.display = 'block';
-    document.body.classList.add('popup-open');
+    document.getElementById('loginPopup').style.display = 'block';
 });
+
+document.getElementById('registerBtn').addEventListener('click', function() {
+    document.getElementById('registerPopup').style.display = 'block';
+});
+
+window.onclick = function(event) {
+    const loginPopup = document.getElementById('loginPopup');
+    const registerPopup = document.getElementById('registerPopup');
+    if (event.target == loginPopup) {
+        loginPopup.style.display = "none";
+    }
+    if (event.target == registerPopup) {
+        registerPopup.style.display = "none";
+    }
+};
+
 
 document.querySelector('.close-btn').addEventListener('click', function() {
     document.querySelector('.popup').style.display = 'none';
