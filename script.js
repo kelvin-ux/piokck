@@ -44,29 +44,46 @@ window.addEventListener('scroll', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loginButton = document.querySelector('.nav-right a[href="subsites/login.html"]');
-    const popup = document.getElementById('login-popup');
-    const closeButton = document.querySelector('.close-btn');
+document.addEventListener('DOMContentLoaded', function() {
+    const loginBtn = document.getElementById('login-btn');
+    const registerBtn = document.getElementById('register-btn');
+    const loginPopup = document.getElementById('login-popup');
+    const registerPopup = document.getElementById('register-popup');
+    const closeLogin = document.getElementById('close-login');
+    const closeRegister = document.getElementById('close-register');
 
-    loginButton.addEventListener('click', (e) => {
-        e.preventDefault();
+    loginBtn.addEventListener('click', function() {
+        loginPopup.style.display = 'block';
         document.body.classList.add('popup-open');
-        popup.style.display = 'block';
     });
 
-    closeButton.addEventListener('click', () => {
+    registerBtn.addEventListener('click', function() {
+        registerPopup.style.display = 'block';
+        document.body.classList.add('popup-open');
+    });
+
+    closeLogin.addEventListener('click', function() {
+        loginPopup.style.display = 'none';
         document.body.classList.remove('popup-open');
-        popup.style.display = 'none';
     });
 
-    window.addEventListener('click', (e) => {
-        if (e.target === popup) {
+    closeRegister.addEventListener('click', function() {
+        registerPopup.style.display = 'none';
+        document.body.classList.remove('popup-open');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === loginPopup) {
+            loginPopup.style.display = 'none';
             document.body.classList.remove('popup-open');
-            popup.style.display = 'none';
+        }
+        if (event.target === registerPopup) {
+            registerPopup.style.display = 'none';
+            document.body.classList.remove('popup-open');
         }
     });
 });
+
 
 
 document.getElementById('loginBtn').addEventListener('click', function() {

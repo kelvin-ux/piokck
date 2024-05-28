@@ -31,19 +31,34 @@
     </header>
     <div id="login-popup" class="popup">
         <div class="popup-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn" id="close-login">&times;</span>
             <h2>Zaloguj się</h2>
-            <div class="inside">
-                <form>
-                <label for="username">Nazwa użytkownika:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Zaloguj się</button>
-            </form>
-            </div>
+            <label for="username">Nazwa użytkownika:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password">
+            <button id="login-submit">Zaloguj się</button>
         </div>
-    </div>       
+    </div>
+    <div id="register-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="close-register">&times;</span>
+            <h2>Zarejestruj się</h2>
+            <label for="fullname">Imię i nazwisko:</label>
+            <input type="text" id="fullname" name="fullname">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <label for="password">Hasło:</label>
+            <input type="password" id="register-password" name="password">
+            <label for="confirm-password">Potwierdź hasło:</label>
+            <input type="password" id="confirm-password" name="confirm-password">
+            <label for="year">Rok studiów:</label>
+            <input type="text" id="year" name="year">
+            <label for="major">Kierunek studiów:</label>
+            <input type="text" id="major" name="major">
+            <button id="register-submit">Zarejestruj się</button>
+        </div>
+    </div>      
     <div class="s1">
         <section id="first">
             <div class="left-content">
@@ -143,19 +158,6 @@
       </section>     
     </section>
 
-    </div>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn">&times;</span>
-            <h2>Zaloguj się</h2>
-            <form method="post" action="log/login.php">
-                <label for="username">Nazwa użytkownika:</label>
-                <input type="text" id="username" name="email" required>
-                <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Zaloguj się</button>
-            </form>
-        </div>
     </div>
     <footer>&copy; 2024 Poly. All rights reserved</footer>
     <script src='script.js'></script>
