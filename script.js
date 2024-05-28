@@ -44,26 +44,78 @@ window.addEventListener('scroll', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loginButton = document.querySelector('.nav-right a[href="subsites/login.html"]');
-    const popup = document.getElementById('login-popup');
-    const closeButton = document.querySelector('.close-btn');
+document.addEventListener("DOMContentLoaded", function() {
+    const loginBtn = document.getElementById("login-btn");
+    const registerBtn = document.getElementById("register-btn");
+    const loginPopup = document.getElementById("login-popup");
+    const registerPopup = document.getElementById("register-popup");
+    const closeLogin = document.getElementById("close-login");
+    const closeRegister = document.getElementById("close-register");
 
-    loginButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.body.classList.add('popup-open');
-        popup.style.display = 'block';
+    loginBtn.addEventListener("click", function() {
+        loginPopup.style.display = "block";
+        document.body.classList.add("popup-open");
     });
 
-    closeButton.addEventListener('click', () => {
-        document.body.classList.remove('popup-open');
-        popup.style.display = 'none';
+    registerBtn.addEventListener("click", function() {
+        registerPopup.style.display = "block";
+        document.body.classList.add("popup-open");
     });
 
-    window.addEventListener('click', (e) => {
-        if (e.target === popup) {
-            document.body.classList.remove('popup-open');
-            popup.style.display = 'none';
+    closeLogin.addEventListener("click", function() {
+        loginPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
+    });
+
+    closeRegister.addEventListener("click", function() {
+        registerPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target == loginPopup) {
+            loginPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
+        }
+        if (event.target == registerPopup) {
+            registerPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
         }
     });
+});
+
+
+
+
+
+document.getElementById('loginBtn').addEventListener('click', function() {
+    document.getElementById('loginPopup').style.display = 'block';
+});
+
+document.getElementById('registerBtn').addEventListener('click', function() {
+    document.getElementById('registerPopup').style.display = 'block';
+});
+
+window.onclick = function(event) {
+    const loginPopup = document.getElementById('loginPopup');
+    const registerPopup = document.getElementById('registerPopup');
+    if (event.target == loginPopup) {
+        loginPopup.style.display = "none";
+    }
+    if (event.target == registerPopup) {
+        registerPopup.style.display = "none";
+    }
+};
+
+
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.querySelector('.popup').style.display = 'none';
+    document.body.classList.remove('popup-open');
+});
+
+window.addEventListener('click', function(event) {
+    if (event.target == document.querySelector('.popup')) {
+        document.querySelector('.popup').style.display = 'none';
+        document.body.classList.remove('popup-open');
+    }
 });

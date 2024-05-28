@@ -11,19 +11,11 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
 -- Baza danych: `kck/pio`
 --
 
 -- --------------------------------------------------------
 
---
 -- Struktura tabeli dla tabeli `korki`
 --
 
@@ -31,13 +23,12 @@ CREATE TABLE `korki` (
   `ID_korkow` int(11) NOT NULL,
   `Opis` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
   `Data` date NOT NULL,
-  `Miejscowość` int(30) NOT NULL,
+  `Miejscowość` varchar(30) NOT NULL,
   `ID_uzytkownika` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 -- --------------------------------------------------------
 
---
 -- Struktura tabeli dla tabeli `ogloszenia`
 --
 
@@ -49,52 +40,30 @@ CREATE TABLE `ogloszenia` (
 
 -- --------------------------------------------------------
 
---
 -- Struktura tabeli dla tabeli `uzytkownicy`
 --
 
 CREATE TABLE `uzytkownicy` (
-  `ID_uzytkownika` int(11) NOT NULL,
+  `ID_uzytkownika` int(11) NOT NULL AUTO_INCREMENT,
+  `Imie` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
+  `Nazwisko` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
   `Email` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
-  `Awatar` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
   `Haslo` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL,
-  `Typ_uzytkownika` int(11) NOT NULL
+  `Rok_studiow` varchar(20) COLLATE utf8mb4_polish_ci NOT NULL,
+  `Kierunek` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
+  PRIMARY KEY (`ID_uzytkownika`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
---
--- Indeksy dla zrzutów tabel
---
-
---
 -- Indeksy dla tabeli `korki`
---
 ALTER TABLE `korki`
   ADD PRIMARY KEY (`ID_korkow`),
   ADD KEY `ID_uzytkownika` (`ID_uzytkownika`);
 
---
 -- Indeksy dla tabeli `ogloszenia`
---
 ALTER TABLE `ogloszenia`
   ADD PRIMARY KEY (`ID_ogloszenia`);
 
---
--- Indeksy dla tabeli `uzytkownicy`
---
-ALTER TABLE `uzytkownicy`
-  ADD PRIMARY KEY (`ID_uzytkownika`);
-
---
--- Ograniczenia dla zrzutów tabel
---
-
---
 -- Ograniczenia dla tabeli `korki`
---
 ALTER TABLE `korki`
   ADD CONSTRAINT `korki_ibfk_1` FOREIGN KEY (`ID_uzytkownika`) REFERENCES `uzytkownicy` (`ID_uzytkownika`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
