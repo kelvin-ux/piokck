@@ -20,7 +20,7 @@
             </ul>
             <ul class="nav-right">
                 <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <li><a href="subsites/edit.html">Edycja profilu</a></li>
+                    <li><a href="subsites/edit.php">Edycja profilu</a></li>
                     <li><a href="log/logout.php">Wyloguj</a></li>
                 <?php else: ?>
                     <li><a href="#" id="login-btn">Logowanie</a></li>
