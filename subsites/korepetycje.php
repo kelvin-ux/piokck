@@ -14,7 +14,7 @@
         <nav>
             <ul class="nav-left">
                 <li><a href="../index.php"><i class="fas fa-home"></i></a></li>
-                <li><a href="ogloszenia.php">Ogłoszenia</a></li>
+                <li><a href="info.php">Ogłoszenia</a></li>
                 <li><a href="metody.php">Metody Nauczania</a></li>
             </ul>
         </nav>
