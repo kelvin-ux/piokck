@@ -14,9 +14,9 @@
         <nav>
             <ul class="nav-left">
                 <li><a href="index.php"><i class="fas fa-home"></i></a></li>
-                <li><a href="subsites/info.html">Ogłoszenia</a></li>
-                <li><a href="subsites/koreprtycje.html">Korki</a></li>
-                <li><a href="subsites/metody.html">Metody Nauczanie</a></li>
+                <li><a href="subsites/info.php">Ogłoszenia</a></li>
+                <li><a href="subsites/korepetycje.php">Korki</a></li>
+                <li><a href="subsites/metody.php">Metody Nauczania</a></li>
             </ul>
             <ul class="nav-right">
                 <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
