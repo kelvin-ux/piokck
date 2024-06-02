@@ -28,20 +28,6 @@ setInterval(changeBackgroundImage, refreshRateImage); //5 sek delay
 
 rightContent.style.backgroundImage = `url(${images[0]})`;
 
-window.addEventListener('scroll', function() {
-    const section1 = document.querySelector('.s1');
-    const section2 = document.querySelector('.s2');
-    const section3 = document.querySelector('.s3');
-    const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-    if (scrollPosition < section2.offsetTop) {
-        window.scrollTo({ top: section1.offsetTop, behavior: 'smooth' });
-    } else if (scrollPosition < section3.offsetTop) {
-        window.scrollTo({ top: section2.offsetTop, behavior: 'smooth' });
-    } else {
-        window.scrollTo({ top: section3.offsetTop, behavior: 'smooth' });
-    }
-});
 
 
 document.addEventListener("DOMContentLoaded", function() {

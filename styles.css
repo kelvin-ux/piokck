@@ -4,7 +4,6 @@ body {
   padding: 0;
   background-color: #0b0e27;
   color: #fff;
-  scroll-behavior: smooth;
 }
 
 header {
@@ -65,7 +64,7 @@ header ul li .sign-up:hover {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .nav-left,
@@ -261,7 +260,7 @@ body.popup-open {
 }
 
 .right-content {
-  flex: 0 0 70%;
+  flex: 0 0 50%;
   background-size: cover;
   background-position: center;
   transition: background-image 1s ease-in-out;
