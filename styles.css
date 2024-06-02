@@ -600,3 +600,157 @@ footer {
   border-radius: 10px;
   object-fit: cover;
 }
+select{
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.announcement-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2rem; 
+}
+
+.announcement {
+  display: flex;
+  align-items: flex-start; 
+  background-color: #1a1d3f;
+  padding: 10px; 
+  border-radius: 10px;
+  width: 80%;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.announcement:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.announcement img {
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px; 
+  margin-top: 0; 
+}
+
+.announcement-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  flex: 1;
+}
+
+.announcement h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0; 
+  padding-top: 0; 
+}
+
+.announcement p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-top: 10px; 
+}
+.tutoring-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 2rem; /* Add bottom padding to create space before the footer */
+}
+
+.tutoring-item {
+  display: flex;
+  align-items: flex-start; /* Align items at the start */
+  background-color: #1a1d3f;
+  padding: 10px; /* Added padding to create space inside the tutoring box */
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tutoring-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tutoring-img {
+  width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px; /* Margin between image and text */
+  margin-top: 0; /* Remove any default margin */
+}
+
+.tutoring-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  flex: 1; /* Ensure it takes up the remaining space */
+}
+
+.tutoring-text h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0; /* Remove default margin */
+  padding-top: 0; /* Remove padding to align title with image */
+}
+
+.tutoring-text p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-top: 10px; /* Space between title and text */
+}
+
+.methods-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 2rem; /* Add bottom padding to create space before the footer */
+}
+
+.method-item {
+  background-color: #1a1d3f;
+  border-radius: 10px;
+  width: 300px; /* Zwiększ szerokość prostokąta */
+  height: 400px; /* Zwiększ wysokość prostokąta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.method-content {
+  text-align: center;
+  padding: 1rem;
+}
+
+.method-content h2 {
+  font-size: 1.8rem; /* Zwiększ rozmiar czcionki tytułu */
+  color: #fff;
+  margin: 0 0 15px 0; /* Zwiększ odstęp poniżej tytułu */
+}
+
+.method-img {
+  width: 100%;
+  height: 250px; /* Ustaw wysokość obrazu w prostokącie */
+  border-radius: 10px;
+  object-fit: cover;
+}
