@@ -64,8 +64,8 @@ header ul li .sign-up:hover {
 
 nav {
   display: flex;
-  margin: 50px;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-right: 50px;
 }
 
 .nav-left,
@@ -261,7 +261,7 @@ body.popup-open {
 }
 
 .right-content {
-  flex: 0 0 50%;
+  flex: 0 0 63%;
   background-size: cover;
   background-position: center;
   transition: background-image 1s ease-in-out;
