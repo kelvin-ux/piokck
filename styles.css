@@ -365,7 +365,7 @@ body.popup-open {
   justify-content: space-around;
 }
 
-.feature, .post {
+.feature,.post  {
   background-color: #1a1d3f;
   padding: 1rem;
   border-radius: 5px;
@@ -391,6 +391,7 @@ body.popup-open {
 
 .post-large {
   width: 60%;
+  height: 60%;
   height: auto;
 }
 
@@ -404,6 +405,7 @@ body.popup-open {
 .post {
   background-color: #1a1d3f;
   border-radius: 10px;
+  height: 50%;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;

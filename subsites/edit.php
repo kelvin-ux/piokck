@@ -32,7 +32,7 @@
 
     <div class="popup-content" style="display: flex">
         <div class="left-content">
-            <form action="../log/edit.php" method="post">
+            <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
                 <input type="text" id="imie" name="imie" value="<?php echo $_SESSION['imie']; ?>" required>
                 <label for="nazwisko">Nazwisko:</label>
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="popup-content">
-        <form action="../log/register.php" method="post">
+        <form action="../log/edit_pswd.php" method="post">
             <label for="haslo">Hasło:</label>
             <input type="password" id="haslo" name="haslo" required>
             <label for="confirm_haslo">Potwierdź Hasło:</label>
