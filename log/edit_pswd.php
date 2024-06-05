@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
     }
     else{
-        echo "Podane hasła nie są takie same";
+        $_SESSION['error']=1;
+        header("location: ../subsites/edit.php");
     }
 }
 ?>

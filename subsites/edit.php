@@ -8,8 +8,19 @@
     <link rel='stylesheet' type='text/css' media='screen' href='../styles.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
-<?php session_start(); ?>
+<?php session_start();?>
+<body <?php if($_SESSION['error'])echo'class="popup-open"' ?>>
+<?php
+if($_SESSION['error']) {
+    echo '<div id="error-popup" class="popup" style="display: block;">
+    <div class="popup-content" >
+        <span class="close-btn" id="close-error">&times;</span>
+        <h1>Podane hasła nie są takie same!</h1>
+    </div>
+    </div>';
+    $_SESSION['error']=0;
+}
+?>
 <header>
     <nav>
         <ul class="nav-left">
