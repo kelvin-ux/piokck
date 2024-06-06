@@ -35,8 +35,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const registerBtn = document.getElementById("register-btn");
     const loginPopup = document.getElementById("login-popup");
     const registerPopup = document.getElementById("register-popup");
+    const errorPopup = document.getElementById("error-popup");
     const closeLogin = document.getElementById("close-login");
     const closeRegister = document.getElementById("close-register");
+    const closeError = document.getElementById("close-error");
 
     loginBtn.addEventListener("click", function() {
         loginPopup.style.display = "block";
@@ -57,6 +59,10 @@ document.addEventListener("DOMContentLoaded", function() {
         registerPopup.style.display = "none";
         document.body.classList.remove("popup-open");
     });
+    closeError.addEventListener("click", function() {
+        errorPopup.style.display = "none";
+        document.body.classList.remove("popup-open");
+    });
 
     window.addEventListener("click", function(event) {
         if (event.target == loginPopup) {
@@ -65,6 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         if (event.target == registerPopup) {
             registerPopup.style.display = "none";
+            document.body.classList.remove("popup-open");
+        }
+        if (event.target == errorPopup) {
+            errorPopup.style.display = "none";
             document.body.classList.remove("popup-open");
         }
     });
@@ -85,11 +95,16 @@ document.getElementById('registerBtn').addEventListener('click', function() {
 window.onclick = function(event) {
     const loginPopup = document.getElementById('loginPopup');
     const registerPopup = document.getElementById('registerPopup');
+    const errorPopup = document.getElementById("errorPopup");
+
     if (event.target == loginPopup) {
         loginPopup.style.display = "none";
     }
     if (event.target == registerPopup) {
         registerPopup.style.display = "none";
+    }
+    if (event.target == errorPopup) {
+        errorPopup.style.display = "none";
     }
 };
 
