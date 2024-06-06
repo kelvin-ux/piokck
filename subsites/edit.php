@@ -8,8 +8,19 @@
     <link rel='stylesheet' type='text/css' media='screen' href='../styles.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body>
-<?php session_start(); ?>
+<?php session_start();?>
+<body <?php if($_SESSION['error'])echo'class="popup-open"' ?>>
+<?php
+if($_SESSION['error']) {
+    echo '<div id="error-popup" class="popup" style="display: block;">
+    <div class="popup-content" >
+        <span class="close-btn" id="close-error">&times;</span>
+        <h1>Podane hasła nie są takie same!</h1>
+    </div>
+    </div>';
+    $_SESSION['error']=0;
+}
+?>
 <header>
     <nav>
         <ul class="nav-left">
@@ -32,15 +43,15 @@
 
     <div class="popup-content" style="display: flex">
         <div class="left-content">
-            <form action="../log/register.php" method="post">
+            <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
-                <input type="text" id="imie" name="imie" required>
+                <input type="text" id="imie" name="imie" value="<?php echo $_SESSION['imie']; ?>" required>
                 <label for="nazwisko">Nazwisko:</label>
-                <input type="text" id="nazwisko" name="nazwisko" required>
+                <input type="text" id="nazwisko" name="nazwisko" value="<?php echo $_SESSION['nazwisko']; ?>" required>
                 <label for="rok_studiow">Rok studiów:</label>
-                <input type="text" id="rok_studiow" name="rok_studiow" required>
+                <input type="text" id="rok_studiow" name="rok_studiow" value="<?php echo $_SESSION['rok']; ?>" required>
                 <label for="kierunek">Kierunek:</label>
-                <input type="text" id="kierunek" name="kierunek" required>
+                <input type="text" id="kierunek" name="kierunek" value="<?php echo $_SESSION['kierunek']; ?>" required>
                 <button type="submit">Zastosuj zmiany</button>
             </form>
         </div>
@@ -50,7 +61,7 @@
         </div>
     </div>
     <div class="popup-content">
-        <form action="../log/register.php" method="post">
+        <form action="../log/edit_pswd.php" method="post">
             <label for="haslo">Hasło:</label>
             <input type="password" id="haslo" name="haslo" required>
             <label for="confirm_haslo">Potwierdź Hasło:</label>
