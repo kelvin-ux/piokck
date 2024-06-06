@@ -39,7 +39,11 @@
                     <?php else: ?>
                         <h1 id="animated-text" class="animated-text">Witamy na Poly!</h1>
                     <?php endif; ?>
-                    <p class="subtext">Witamy na stronie Poly, gdzie znajdziesz wiele przydatnych informacji.</p>
+                    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                        <p class="subtext">Miło cię znowu widzieć! <br> Zobacz co się zmieniło od twojej ostatniej wizyty!</p>
+                    <?php else: ?>
+                        <p class="subtext">Witamy na stronie Poly, gdzie znajdziesz wiele przydatnych informacji.</p>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="right-content"></div>
@@ -121,43 +125,43 @@
         <h2>Najciekawsze newsy</h2>
         <div class="blog-posts">
             <div class="post post-large">
-                <img src="blogimg/s1.png" alt="Post Image 1">
+                <img src="blogimg/juwe.jpg" alt="Post Image 1">
                 <div class="post-content">
-                    <p class="post-date">Sep 26, 2021</p>
+                    <p class="post-date">13 Maja, 2024</p>
                     <h3>Juwenalia 2024: Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.</h3>
                     <a href="#" class="read-more">Czytaj więcej</a>
                 </div>
             </div>
             <div class="small-posts">
                 <div class="post">
-                    <img src="blogimg/s1.png" alt="Post Image 2">
+                    <img src="blogimg/tragii.jpeg" alt="Post Image 2">
                     <div class="post-content">
-                        <p class="post-date">1, 2021</p>
-                        <h3>Targi Pracy: Jak to Wygladało w tym roku?</h3>
+                        <p class="post-date">21 Marca, 2024</p>
+                        <h3>Targi Pracy 2024</h3>
                         <a href="#" class="read-more">Czytaj więcej</a>
                     </div>
                 </div>
                 <div class="post">
-                    <img src="blogimg/s1.png" alt="Post Image 3">
+                    <img src="blogimg/festw.jpeg" alt="Post Image 3">
                     <div class="post-content">
-                        <p class="post-date">2, 2021</p>
+                        <p class="post-date">9 Września, 2023</p>
                         <h3>Festiwal Nauki i Techniki 2024</h3>
                         <a href="#" class="read-more">Czytaj więcej</a>
                     </div>
                 </div>
                 <div class="post">
-                    <img src="blogimg/s1.png" alt="Post Image 4">
+                    <img src="blogimg/kong.png" alt="Post Image 4">
                     <div class="post-content">
-                        <p class="post-date">3, 2021</p>
-                        <h3>Kongres Innowacji Sierpien 2024</h3>
+                        <p class="post-date">17 Sierpnia, 2023</p>
+                        <h3>Kongres Innowacji Sierpien 2023</h3>
                         <a href="#" class="read-more">Czytaj więcej</a>
                     </div>
                 </div>
                 <div class="post">
-                    <img src="blogimg/s1.png" alt="Post Image 5">
+                    <img src="blogimg/dn.jpg" alt="Post Image 5">
                     <div class="post-content">
-                        <p class="post-date">4, 2021</p>
-                        <h3>Dni Otwarte 2024: Prezentacja oferty edukacyjnej dla przyszłych studentów.</h3>
+                        <p class="post-date">14 Marzec, 2024</p>
+                        <h3>Dni Otwarte 2024</h3>
                         <a href="#" class="read-more">Czytaj więcej</a>
                     </div>
                 </div>
