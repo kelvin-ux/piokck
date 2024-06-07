@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['nazwisko'] = $nazwisko;
             $_SESSION['rok'] = $rok;
             $_SESSION['kierunek'] = $kierunek;
+            $_SESSION['error'] = 0;
             header("location: ../index.php");
         } else {
             echo "Nieprawidłowe hasło.";

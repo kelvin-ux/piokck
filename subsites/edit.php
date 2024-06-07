@@ -10,17 +10,7 @@
 </head>
 <?php session_start();?>
 <body <?php if($_SESSION['error'])echo'class="popup-open"' ?>>
-<?php
-if($_SESSION['error']) {
-    echo '<div id="error-popup" class="popup" style="display: block;">
-    <div class="popup-content" >
-        <span class="close-btn" id="close-error">&times;</span>
-        <h1>Podane hasła nie są takie same!</h1>
-    </div>
-    </div>';
-    $_SESSION['error']=0;
-}
-?>
+
 <header>
     <nav>
         <ul class="nav-left">
@@ -40,7 +30,17 @@ if($_SESSION['error']) {
         </ul>
     </nav>
 </header>
-
+<?php
+if($_SESSION['error']) {
+    echo '<div id="error-popup" class="popup" style="display: block;">
+    <div class="popup-content" >
+        <span class="close-btn" id="close-error">&times;</span>
+        <h1>Podane hasła nie są takie same!</h1>
+    </div>
+    </div>';
+    $_SESSION['error']=0;
+}
+?>
     <div class="popup-content" style="display: flex">
         <div class="left-content">
             <form action="../log/edit_profile.php" method="post">
@@ -92,7 +92,28 @@ if($_SESSION['error']) {
     </div>
 
 <footer>&copy; 2024 Poly. All rights reserved</footer>
-<script src='../script.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const closeError = document.getElementById("close-error");
+        const errorPopup = document.getElementById("error-popup");
+
+        if (closeError) {
+            closeError.addEventListener("click", function() {
+                if (errorPopup) {
+                    errorPopup.style.display = "none";
+                    document.body.classList.remove("popup-open");
+                }
+            });
+        }
+
+        window.addEventListener("click", function(event) {
+            if (event.target == errorPopup) {
+                errorPopup.style.display = "none";
+                document.body.classList.remove("popup-open");
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
