@@ -41,7 +41,7 @@ if($_SESSION['error']) {
     $_SESSION['error']=0;
 }
 ?>
-    <div class="popup-content" style="display: flex;justify-content: space-between;">
+    <div class="popup-content" style="display: flex;justify-content: space-evenly;">
         <div class="left-content">
             <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
