@@ -6,13 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $haslo = $_POST['haslo'];
 
-    $stmt = $mysqli->prepare("SELECT ID_uzytkownika, Imie, Nazwisko, Haslo, Rok_studiow, Kierunek FROM uzytkownicy WHERE Email=?");
+    $stmt = $mysqli->prepare("SELECT ID_uzytkownika, Imie, Nazwisko, Haslo, Rok_studiow, Kierunek, Profil FROM uzytkownicy WHERE Email=?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
     
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $imie, $nazwisko, $hashed_password, $rok, $kierunek);
+        $stmt->bind_result($id, $imie, $nazwisko, $hashed_password, $rok, $kierunek, $awatar);
         $stmt->fetch();
         
         if (password_verify($haslo, $hashed_password)) {
@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['nazwisko'] = $nazwisko;
             $_SESSION['rok'] = $rok;
             $_SESSION['kierunek'] = $kierunek;
+            $_SESSION['awatar'] = $awatar;
             $_SESSION['error'] = 0;
             header("location: ../index.php");
         } else {
