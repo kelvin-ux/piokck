@@ -56,8 +56,21 @@ if($_SESSION['error']) {
             </form>
         </div>
         <div>
-            <img src="../images/avatar5.png" alt="Avatar" class="avatar" style="width: 100%">
-            <button id="clickme" onclick="changeImage()">Zmień obraz</button>
+            <form method="POST" action="../log/edit_awatar.php" enctype="multipart/form-data">
+
+            <img src="../images/<?php
+            if($_SESSION['awatar']==null){
+                echo "avatar5.png";
+            }
+            else{
+                echo $_SESSION['awatar'];
+            }
+            ?>" alt="Avatar" class="avatar" style="width: 100%">
+             <div class="form-group">
+                <input class="form-control" type="file" name="uploadfile" value="" />
+             </div>
+            <button type="submit" name="upload">Zmień obraz awatara</button>
+            </form>
         </div>
     </div>
     <div class="popup-content">
