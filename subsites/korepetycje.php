@@ -26,7 +26,7 @@
             <h1>Korepetycje</h1>
             <div class="tutoring-list">
                 <div class="tutoring-item">
-                    <img src="../blogimg/s1.png" alt="Tutor Image" class="tutoring-img">
+                    <img src="../images/matematyka.jpg" alt="Tutor Image" class="tutoring-img">
                     <div class="tutoring-text">
                         <h2>Matematyka</h2>
                         <p>Data: 15 czerwca 2024</p>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="tutoring-item">
-                    <img src="../blogimg/s1.png" alt="Tutor Image" class="tutoring-img">
+                    <img src="../images/fizyka.jpg" alt="Tutor Image" class="tutoring-img">
                     <div class="tutoring-text">
                         <h2>Fizyka</h2>
                         <p>Data: 20 czerwca 2024</p>
@@ -44,12 +44,67 @@
                     </div>
                 </div>
                 <div class="tutoring-item">
-                    <img src="../blogimg/s1.png" alt="Tutor Image" class="tutoring-img">
+                    <img src="../images/ang.png" alt="Tutor Image" class="tutoring-img">
                     <div class="tutoring-text">
                         <h2>Język Angielski</h2>
                         <p>Data: 25 czerwca 2024</p>
                         <p>Miejscowość: Łódź</p>
                         <p>Opis: Oferuję korepetycje z języka angielskiego na każdym poziomie zaawansowania. Przygotowanie do egzaminów, konwersacje, pomoc w zadaniach domowych.</p>
+                    </div>
+                </div>
+                <!-- Dodane korepetycje -->
+                <div class="tutoring-item">
+                    <img src="../images/chemia.jpg" alt="Tutor Image" class="tutoring-img">
+                    <div class="tutoring-text">
+                        <h2>Chemia</h2>
+                        <p>Data: 18 czerwca 2024</p>
+                        <p>Miejscowość: Łódź</p>
+                        <p>Opis: Oferuję korepetycje z chemii dla uczniów szkół średnich. Przygotowanie do egzaminów maturalnych oraz pomoc w zrozumieniu trudnych zagadnień.</p>
+                    </div>
+                </div>
+                <div class="tutoring-item">
+                    <img src="../images/biologia.jpg" alt="Tutor Image" class="tutoring-img">
+                    <div class="tutoring-text">
+                        <h2>Biologia</h2>
+                        <p>Data: 22 czerwca 2024</p>
+                        <p>Miejscowość: Łódź</p>
+                        <p>Opis: Prowadzę korepetycje z biologii, oferuję pomoc w przygotowaniu do matury oraz wsparcie w codziennej nauce.</p>
+                    </div>
+                </div>
+                <div class="tutoring-item">
+                    <img src="../images/historia.jpg" alt="Tutor Image" class="tutoring-img">
+                    <div class="tutoring-text">
+                        <h2>Historia</h2>
+                        <p>Data: 28 czerwca 2024</p>
+                        <p>Miejscowość: Łódź</p>
+                        <p>Opis: Oferuję korepetycje z historii na poziomie szkoły średniej. Pomogę w przygotowaniach do egzaminów i zrozumieniu kluczowych wydarzeń historycznych.</p>
+                    </div>
+                </div>
+                <div class="tutoring-item">
+                    <img src="../images/geografia.jpg" alt="Tutor Image" class="tutoring-img">
+                    <div class="tutoring-text">
+                        <h2>Geografia</h2>
+                        <p>Data: 30 czerwca 2024</p>
+                        <p>Miejscowość: Łódź</p>
+                        <p>Opis: Oferuję korepetycje z geografii. Pomoc w przygotowaniu do matury oraz zrozumieniu trudnych zagadnień geograficznych.</p>
+                    </div>
+                </div>
+                <div class="tutoring-item">
+                    <img src="../blogimg/s1.png" alt="Tutor Image" class="tutoring-img">
+                    <div class="tutoring-text">
+                        <h2>Informatyka</h2>
+                        <p>Data: 5 lipca 2024</p>
+                        <p>Miejscowość: Łódź</p>
+                        <p>Opis: Oferuję korepetycje z informatyki. Pomoc w programowaniu, przygotowanie do olimpiad informatycznych oraz zrozumienie zagadnień technologicznych.</p>
+                    </div>
+                </div>
+                <div class="tutoring-item">
+                    <img src="../images/francuski.jpg" alt="Tutor Image" class="tutoring-img">
+                    <div class="tutoring-text">
+                        <h2>Język Francuski</h2>
+                        <p>Data: 10 lipca 2024</p>
+                        <p>Miejscowość: Łódź</p>
+                        <p>Opis: Oferuję korepetycje z języka francuskiego. Pomoc w przygotowaniach do egzaminów, konwersacje oraz pomoc w codziennych zadaniach domowych.</p>
                     </div>
                 </div>
             </div>

@@ -622,7 +622,7 @@ select{
   border-radius: 10px;
 }
 header ul li a.active {
-  color: orange;
+  color: #ff5b60;
 }
 .popup-content a {
   color: #ff5b60;
