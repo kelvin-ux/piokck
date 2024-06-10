@@ -14,6 +14,7 @@
         <nav>
             <ul class="nav-left">
                 <li><a href="../index.php"><i class="fas fa-home"></i></a></li>
+                <li><a href="info.php" class="active">Ogłoszenia</a></li>
                 <li><a href="korepetycje.php">Korki</a></li>
                 <li><a href="metody.php">Metody Nauczania</a></li>
             </ul>

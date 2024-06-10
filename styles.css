@@ -574,28 +574,40 @@ select{
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  padding-bottom: 2rem; /* Add bottom padding to create space before the footer */
+  padding-bottom: 2rem;
 }
 
 .method-item {
+  display: flex;
+  align-items: flex-start;
   background-color: #1a1d3f;
+  padding: 10px;
   border-radius: 10px;
-  width: 300px; /* Zwiększ szerokość prostokąta */
-  height: 400px; /* Zwiększ wysokość prostokąta */
+  width: 80%;
+  max-width: 800px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .method-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+.method-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+}
 
 .method-content {
   text-align: center;
-  padding: 1rem;
-  /* position: relative;
-  margin-top: 2rem; Add top margin to create space from the announcements */
+  flex-grow: 1;
 }
 
 .method-content h2 {
@@ -603,17 +615,19 @@ select{
   color: #fff;
   margin: 0 0 15px 0; /* Zwiększ odstęp poniżej tytułu */
 }
-
-.method-img {
+.method-content img {
   width: 100%;
-  height: 250px; /* Ustaw wysokość obrazu w prostokącie */
-  border-radius: 10px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 10px;
 }
-footer {
-  background-color: #1a1d3f;
-  text-align: center;
-  padding: 1rem;
-  position: relative;
-  margin-top: 2rem; /* Add top margin to create space from the announcements */
+header ul li a.active {
+  color: orange;
+}
+.popup-content a {
+  color: #ff5b60;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+  text-align: right;
 }
