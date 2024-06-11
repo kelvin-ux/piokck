@@ -96,31 +96,59 @@
     });
     </script>
 
-
-    <div id="register-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" id="close-register">&times;</span>
-            <h2>Zarejestruj się</h2>
-            <form action="log/register.php" method="post">
-                <label for="imie">Imię:</label>
-                <input type="text" id="imie" name="imie" required>
-                <label for="nazwisko">Nazwisko:</label>
-                <input type="text" id="nazwisko" name="nazwisko" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="haslo">Hasło:</label>
-                <input type="password" id="haslo" name="haslo" required>
-                <label for="confirm_haslo">Potwierdź Hasło:</label>
-                <input type="password" id="confirm_haslo" name="confirm_haslo" required>
-                <label for="rok_studiow">Rok studiów:</label>
-                <input type="text" id="rok_studiow" name="rok_studiow" required>
-                <label for="kierunek">Kierunek:</label>
-                <input type="text" id="kierunek" name="kierunek" required>
-                <button type="submit">Zarejestruj się</button>
-            </form>
-        </div>
+<div id="register-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="close-register">&times;</span>
+        <h2>Zarejestruj się</h2>
+        <form id="register-form">
+            <label for="imie">Imię:</label>
+            <input type="text" id="imie" name="imie" required>
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" id="nazwisko" name="nazwisko" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="haslo">Hasło:</label>
+            <input type="password" id="haslo" name="haslo" required>
+            <label for="confirm_haslo">Potwierdź Hasło:</label>
+            <input type="password" id="confirm_haslo" name="confirm_haslo" required>
+            <label for="rok_studiow">Rok studiów:</label>
+            <input type="text" id="rok_studiow" name="rok_studiow" required>
+            <label for="kierunek">Kierunek:</label>
+            <input type="text" id="kierunek" name="kierunek" required>
+            <button type="submit">Zarejestruj się</button>
+        </form>
+        <div id="register-error" class="error-message"></div>
     </div>
-    <div class="s2">
+</div>
+
+
+<script>   
+    $(document).ready(function() {
+        $('#register-form').on('submit', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: 'log/register.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = 'index.php';
+                    } else {
+                        $('#register-error').css('color', 'red').text(response.message);
+                    }
+                }
+            });
+        });
+
+        $('#close-register').on('click', function() {
+            $('#register-popup').hide();
+        });
+    });
+</script>
+   
+<div class="s2">
         <section id="what-we-do">
             <div class="what-we-do-container">
                 <div class="what-we-do-content">
