@@ -559,6 +559,9 @@ select{
   justify-content: flex-start;
   text-align: left;
   flex: 1;
+  overflow-wrap: break-word;
+  width: 200px; 
+  padding: 10px; 
 }
 
 .announcement-text h2 {

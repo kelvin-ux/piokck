@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirm_haslo = $_POST['confirm_haslo'];
     $rok_studiow = $_POST['rok_studiow'];
     $kierunek = trim($_POST['kierunek']);
+    $typ = 0; // Domyślny typ użytkownika
 
     // Walidacja po stronie serwera
     if (strlen($imie) < 3 || strlen($imie) > 32) {
@@ -36,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Hashowanie hasła
         $hashed_password = password_hash($haslo, PASSWORD_DEFAULT);
 
-        $stmt = $mysqli->prepare("INSERT INTO uzytkownicy (Imie, Nazwisko, Email, Haslo, Rok_studiow, Kierunek) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $imie, $nazwisko, $email, $hashed_password, $rok_studiow, $kierunek);
+        $stmt = $mysqli->prepare("INSERT INTO uzytkownicy (Imie, Nazwisko, Email, Haslo, Rok_studiow, Kierunek, Typ) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssi", $imie, $nazwisko, $email, $hashed_password, $rok_studiow, $kierunek, $typ);
 
         if ($stmt->execute()) {
             $_SESSION['loggedin'] = true;
@@ -47,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['rok'] = $rok_studiow;
             $_SESSION['kierunek'] = $kierunek;
             $_SESSION['awatar'] = null;
+            $_SESSION['typ'] = 0;
             $_SESSION['error'] = 0;
             $response["status"] = "success";
             $response["message"] = "Rejestracja zakończona sukcesem.";
