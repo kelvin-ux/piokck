@@ -111,11 +111,6 @@ body.popup-open {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
 .popup-content {
   background-color: #1a1d3f;
   position: relative;
@@ -128,11 +123,6 @@ body.popup-open {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   animation: slideIn 0.5s ease-in-out;
-}
-
-@keyframes slideIn {
-  from {transform: translateY(-50px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
 }
 
 .close-btn {
@@ -148,6 +138,21 @@ body.popup-open {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+@keyframes slideIn {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+
 
 .popup-content h2 {
   margin-top: 0;

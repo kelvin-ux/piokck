@@ -2,6 +2,8 @@
 session_start();
 include 'db.php';
 
+$response = array("status" => "error", "message" => "Unknown error occurred.");
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $haslo = $_POST['haslo'];
@@ -24,14 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['kierunek'] = $kierunek;
             $_SESSION['awatar'] = $awatar;
             $_SESSION['error'] = 0;
-            header("location: ../index.php");
+            $response["status"] = "success";
         } else {
-            echo "Nieprawidłowe hasło.";
+            $response["message"] = "Nieprawidłowe hasło.";
         }
     } else {
-        echo "Nie znaleziono użytkownika o podanym adresie email.";
+        $response["message"] = "Nie znaleziono użytkownika o podanym adresie email.";
     }
 
     $stmt->close();
 }
+
+echo json_encode($response);
 ?>
