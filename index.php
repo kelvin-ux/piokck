@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <?php session_start(); ?>
@@ -54,15 +55,47 @@
         <div class="popup-content">
             <span class="close-btn" id="close-login">&times;</span>
             <h2>Zaloguj się</h2>
-            <form action="log/login.php" method="post">
+            <form id="login-form">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="haslo">Hasło:</label>
                 <input type="password" id="haslo" name="haslo" required>
                 <button type="submit">Zaloguj się</button>
             </form>
+            <div id="login-error" class="error-message"></div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+        $('#login-form').on('submit', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: 'log/login.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = 'index.php'; 
+                    } else {
+                        $('#login-error').text(response.message);
+                        $('#login-popup').show();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('AJAX error: ' + textStatus + ' : ' + errorThrown);
+                }
+            });
+        });
+
+        $('#close-login').on('click', function() {
+            $('#login-popup').hide();
+        });
+    });
+    </script>
+
 
     <div id="register-popup" class="popup">
         <div class="popup-content">
