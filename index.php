@@ -190,7 +190,7 @@
             <div class="post-content">
                 <p class="post-date">13 Maja, 2024</p>
                 <h3>Juwenalia 2024: Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.</h3>
-                <a href="#" class="read-more" data-description="Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.">Czytaj więcej</a>
+                <a href="subsites/info.php" class="read-more" data-description="Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.">Czytaj więcej</a>
             </div>
         </div>
         <div class="small-posts">
@@ -199,7 +199,7 @@
                 <div class="post-content">
                     <p class="post-date">21 Marca, 2024</p>
                     <h3>Targi Pracy 2024</h3>
-                    <a href="#" class="read-more" data-description="Przyjdź i poznaj potencjalnych pracodawców, którzy...">Czytaj więcej</a>
+                    <a href="subsites/info.php" class="read-more" data-description="Przyjdź i poznaj potencjalnych pracodawców, którzy...">Czytaj więcej</a>
                 </div>
             </div>
             <div class="post">
@@ -207,7 +207,7 @@
                 <div class="post-content">
                     <p class="post-date">9 Września, 2023</p>
                     <h3>Festiwal Nauki i Techniki 2024</h3>
-                    <a href="#" class="read-more" data-description="Dołącz do nas na fascynującym festiwalu nauki...">Czytaj więcej</a>
+                    <a href="subsites/info.php" class="read-more" data-description="Dołącz do nas na fascynującym festiwalu nauki...">Czytaj więcej</a>
                 </div>
             </div>
             <div class="post">
@@ -215,7 +215,7 @@
                 <div class="post-content">
                     <p class="post-date">17 Sierpnia, 2023</p>
                     <h3>Kongres Innowacji Sierpien 2023</h3>
-                    <a href="#" class="read-more" data-description="Spotkaj się z ekspertami i liderami innowacji...">Czytaj więcej</a>
+                    <a href="subsites/info.php" class="read-more" data-description="Spotkaj się z ekspertami i liderami innowacji...">Czytaj więcej</a>
                 </div>
             </div>
             <div class="post">
@@ -223,7 +223,7 @@
                 <div class="post-content">
                     <p class="post-date">14 Marzec, 2024</p>
                     <h3>Dni Otwarte 2024</h3>
-                    <a href="#" class="read-more" data-description="Poznaj naszą ofertę edukacyjną podczas Dni Otwartych...">Czytaj więcej</a>
+                    <a href="subsites/info.php" class="read-more" data-description="Poznaj naszą ofertę edukacyjną podczas Dni Otwartych...">Czytaj więcej</a>
                 </div>
             </div>
         </div>
