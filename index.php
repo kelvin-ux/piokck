@@ -112,7 +112,7 @@
             <label for="confirm_haslo">Potwierdź Hasło:</label>
             <input type="password" id="confirm_haslo" name="confirm_haslo" required>
             <label for="rok_studiow">Rok studiów:</label>
-            <input type="text" id="rok_studiow" name="rok_studiow" required>
+            <input type="number" id="rok_studiow" name="rok_studiow" required>
             <label for="kierunek">Kierunek:</label>
             <input type="text" id="kierunek" name="kierunek" required>
             <button type="submit">Zarejestruj się</button>
