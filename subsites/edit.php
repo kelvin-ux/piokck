@@ -49,7 +49,7 @@ if($_SESSION['error']) {
                 <label for="nazwisko">Nazwisko:</label>
                 <input type="text" id="nazwisko" name="nazwisko" value="<?php echo $_SESSION['nazwisko']; ?>" required>
                 <label for="rok_studiow">Rok studiów:</label>
-                <input type="text" id="rok_studiow" name="rok_studiow" value="<?php echo $_SESSION['rok']; ?>" required>
+                <input type="number" id="rok_studiow" name="rok_studiow" value="<?php echo $_SESSION['rok']; ?>" required>
                 <label for="kierunek">Kierunek:</label>
                 <input type="text" id="kierunek" name="kierunek" value="<?php echo $_SESSION['kierunek']; ?>" required>
                 <button type="submit">Zastosuj zmiany</button>
