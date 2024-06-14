@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <?php session_start(); ?>
+    <?php include '../log/db.php'; ?>
+
     <header>
         <nav>
             <ul class="nav-left">
                 <li><a href="../index.php"><i class="fas fa-home"></i></a></li>
+                <li><a href="info.php" class="active">Ogłoszenia</a></li>
                 <li><a href="korepetycje.php">Korki</a></li>
                 <li><a href="metody.php">Metody Nauczania</a></li>
+            </ul>
+            <ul class="nav-right">
+                <?php
+                session_start();
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && $_SESSION['typ'] == 1) {
+                    echo "<li><a href='edycja_ogloszen.php'>Edycja Ogłoszeń</a></li>";
+                }
+                ?>
             </ul>
         </nav>
     </header>
@@ -24,32 +34,28 @@
         <section id="announcements">
             <h1>Ogłoszenia</h1>
             <div class="announcement-list">
-                <div class="announcement">
-                    <img src="../blogimg/s1.png" alt="Dni Otwarte" class="announcement-img">
-                    <div class="announcement-text">
-                        <h2>Dni Otwarte na PŁ</h2>
-                        <p>Zapraszamy wszystkich zainteresowanych na Dni Otwarte Politechniki Łódzkiej! Odbędą się one 15 i 16 czerwca. Będzie to doskonała okazja, aby poznać naszą uczelnię, zwiedzić kampus oraz dowiedzieć się więcej o kierunkach studiów, które oferujemy. Przygotowaliśmy wiele atrakcji, w tym spotkania z wykładowcami i studentami, prezentacje laboratoriów oraz pokazy naukowe. Do zobaczenia!</p>
-                    </div>
-                </div>
-                <div class="announcement">
-                    <img src="../blogimg/s1.png" alt="Charytatywny Maraton" class="announcement-img">
-                    <div class="announcement-text">
-                        <h2>Charytatywny Maraton PŁ</h2>
-                        <p>Politechnika Łódzka organizuje charytatywny maraton, który odbędzie się 25 czerwca. Wszystkie zebrane środki zostaną przekazane na wsparcie lokalnych organizacji charytatywnych. Biegniemy, aby pomóc potrzebującym! Maraton rozpocznie się o godzinie 10:00 na głównym stadionie uczelni. Zapisy trwają do 20 czerwca. Dołącz do nas i biegnij dla dobra innych!</p>
-                    </div>
-                </div>
-                <div class="announcement">
-                    <img src="../blogimg/s1.png" alt="Konkurs Informatyczny" class="announcement-img">
-                    <div class="announcement-text">
-                        <h2>Konkurs Informatyczny PŁ</h2>
-                        <p>Zapraszamy wszystkich studentów do udziału w Konkursie Informatycznym Politechniki Łódzkiej! Konkurs odbędzie się 30 czerwca i będzie składał się z kilku etapów, w tym zadań programistycznych oraz prezentacji projektów. Na zwycięzców czekają atrakcyjne nagrody, w tym staże w wiodących firmach IT oraz sprzęt komputerowy. Rejestracja trwa do 25 czerwca. Pokaż swoje umiejętności i zdobądź cenne doświadczenie!</p>
-                    </div>
-                </div>
+                <?php
+                $sql = "SELECT tytul, Opis, Zdjecie FROM ogloszenia";
+                $result = $mysqli->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='announcement'>";
+                        echo "<img src='" . $row['Zdjecie'] . "' alt='" . $row['tytul'] . "' class='announcement-img'>";
+                        echo "<div class='announcement-text'>";
+                        echo "<h2>" . $row['tytul'] . "</h2>";
+                        echo "<p>" . substr($row['Opis'], 0, 200) . "...</p>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "Brak dostępnych ogłoszeń.";
+                }
+                ?>
             </div>
         </section>
     </div>
 
     <footer>&copy; 2024 Poly. All rights reserved</footer>
-    <script src='../script.js'></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <?php session_start(); ?>
@@ -54,40 +55,100 @@
         <div class="popup-content">
             <span class="close-btn" id="close-login">&times;</span>
             <h2>Zaloguj się</h2>
-            <form action="log/login.php" method="post">
+            <form id="login-form">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="haslo">Hasło:</label>
                 <input type="password" id="haslo" name="haslo" required>
                 <button type="submit">Zaloguj się</button>
             </form>
+            <div id="login-error" class="error-message"></div>
         </div>
     </div>
 
-    <div id="register-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" id="close-register">&times;</span>
-            <h2>Zarejestruj się</h2>
-            <form action="log/register.php" method="post">
-                <label for="imie">Imię:</label>
-                <input type="text" id="imie" name="imie" required>
-                <label for="nazwisko">Nazwisko:</label>
-                <input type="text" id="nazwisko" name="nazwisko" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="haslo">Hasło:</label>
-                <input type="password" id="haslo" name="haslo" required>
-                <label for="confirm_haslo">Potwierdź Hasło:</label>
-                <input type="password" id="confirm_haslo" name="confirm_haslo" required>
-                <label for="rok_studiow">Rok studiów:</label>
-                <input type="text" id="rok_studiow" name="rok_studiow" required>
-                <label for="kierunek">Kierunek:</label>
-                <input type="text" id="kierunek" name="kierunek" required>
-                <button type="submit">Zarejestruj się</button>
-            </form>
-        </div>
+    <script>
+        $(document).ready(function() {
+        $('#login-form').on('submit', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: 'log/login.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = 'index.php'; 
+                    } else {
+                        $('#login-error').text(response.message);
+                        $('#login-popup').show();
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('AJAX error: ' + textStatus + ' : ' + errorThrown);
+                }
+            });
+        });
+
+        $('#close-login').on('click', function() {
+            $('#login-popup').hide();
+        });
+    });
+    </script>
+
+<div id="register-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="close-register">&times;</span>
+        <h2>Zarejestruj się</h2>
+        <form id="register-form">
+            <label for="imie">Imię:</label>
+            <input type="text" id="imie" name="imie" required>
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" id="nazwisko" name="nazwisko" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="haslo">Hasło:</label>
+            <input type="password" id="haslo" name="haslo" required>
+            <label for="confirm_haslo">Potwierdź Hasło:</label>
+            <input type="password" id="confirm_haslo" name="confirm_haslo" required>
+            <label for="rok_studiow">Rok studiów:</label>
+            <input type="text" id="rok_studiow" name="rok_studiow" required>
+            <label for="kierunek">Kierunek:</label>
+            <input type="text" id="kierunek" name="kierunek" required>
+            <button type="submit">Zarejestruj się</button>
+        </form>
+        <div id="register-error" class="error-message"></div>
     </div>
-    <div class="s2">
+</div>
+
+
+<script>   
+    $(document).ready(function() {
+        $('#register-form').on('submit', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: 'log/register.php',
+                type: 'POST',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.status === 'success') {
+                        window.location.href = 'index.php';
+                    } else {
+                        $('#register-error').css('color', 'red').text(response.message);
+                    }
+                }
+            });
+        });
+
+        $('#close-register').on('click', function() {
+            $('#register-popup').hide();
+        });
+    });
+</script>
+   
+<div class="s2">
         <section id="what-we-do">
             <div class="what-we-do-container">
                 <div class="what-we-do-content">
@@ -122,52 +183,60 @@
     </div>
 
     <section id="blog" class="s3">
-        <h2>Najciekawsze newsy</h2>
-        <div class="blog-posts">
-            <div class="post post-large">
-                <img src="blogimg/juwe.jpg" alt="Post Image 1">
+    <h2>Najciekawsze newsy</h2>
+    <div class="blog-posts">
+        <div class="post post-large">
+            <img src="blogimg/juwe.jpg" alt="Post Image 1">
+            <div class="post-content">
+                <p class="post-date">13 Maja, 2024</p>
+                <h3>Juwenalia 2024: Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.</h3>
+                <a href="subsites/info.php" class="read-more" data-description="Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.">Czytaj więcej</a>
+            </div>
+        </div>
+        <div class="small-posts">
+            <div class="post">
+                <img src="blogimg/tragii.jpeg" alt="Post Image 2">
                 <div class="post-content">
-                    <p class="post-date">13 Maja, 2024</p>
-                    <h3>Juwenalia 2024: Największe studenckie święto na uczelni, pełne koncertów, imprez plenerowych, konkursów i wspólnej zabawy.</h3>
-                    <a href="#" class="read-more">Czytaj więcej</a>
+                    <p class="post-date">21 Marca, 2024</p>
+                    <h3>Targi Pracy 2024</h3>
+                    <a href="subsites/info.php" class="read-more" data-description="Przyjdź i poznaj potencjalnych pracodawców, którzy...">Czytaj więcej</a>
                 </div>
             </div>
-            <div class="small-posts">
-                <div class="post">
-                    <img src="blogimg/tragii.jpeg" alt="Post Image 2">
-                    <div class="post-content">
-                        <p class="post-date">21 Marca, 2024</p>
-                        <h3>Targi Pracy 2024</h3>
-                        <a href="#" class="read-more">Czytaj więcej</a>
-                    </div>
+            <div class="post">
+                <img src="blogimg/festw.jpeg" alt="Post Image 3">
+                <div class="post-content">
+                    <p class="post-date">9 Września, 2023</p>
+                    <h3>Festiwal Nauki i Techniki 2024</h3>
+                    <a href="subsites/info.php" class="read-more" data-description="Dołącz do nas na fascynującym festiwalu nauki...">Czytaj więcej</a>
                 </div>
-                <div class="post">
-                    <img src="blogimg/festw.jpeg" alt="Post Image 3">
-                    <div class="post-content">
-                        <p class="post-date">9 Września, 2023</p>
-                        <h3>Festiwal Nauki i Techniki 2024</h3>
-                        <a href="#" class="read-more">Czytaj więcej</a>
-                    </div>
+            </div>
+            <div class="post">
+                <img src="blogimg/kong.png" alt="Post Image 4">
+                <div class="post-content">
+                    <p class="post-date">17 Sierpnia, 2023</p>
+                    <h3>Kongres Innowacji Sierpien 2023</h3>
+                    <a href="subsites/info.php" class="read-more" data-description="Spotkaj się z ekspertami i liderami innowacji...">Czytaj więcej</a>
                 </div>
-                <div class="post">
-                    <img src="blogimg/kong.png" alt="Post Image 4">
-                    <div class="post-content">
-                        <p class="post-date">17 Sierpnia, 2023</p>
-                        <h3>Kongres Innowacji Sierpien 2023</h3>
-                        <a href="#" class="read-more">Czytaj więcej</a>
-                    </div>
-                </div>
-                <div class="post">
-                    <img src="blogimg/dn.jpg" alt="Post Image 5">
-                    <div class="post-content">
-                        <p class="post-date">14 Marzec, 2024</p>
-                        <h3>Dni Otwarte 2024</h3>
-                        <a href="#" class="read-more">Czytaj więcej</a>
-                    </div>
+            </div>
+            <div class="post">
+                <img src="blogimg/dn.jpg" alt="Post Image 5">
+                <div class="post-content">
+                    <p class="post-date">14 Marzec, 2024</p>
+                    <h3>Dni Otwarte 2024</h3>
+                    <a href="subsites/info.php" class="read-more" data-description="Poznaj naszą ofertę edukacyjną podczas Dni Otwartych...">Czytaj więcej</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<div id="announcement-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="close-announcement">&times;</span>
+        <h2>Opis wydarzenia</h2>
+        <p id="announcement-description"></p>
+        <a href="subsites/info.php" class="button">Przejdź do ogłoszeń</a>
+    </div>
+</div>
 
     <footer>&copy; 2024 Poly. All rights reserved</footer>
     <script src='script.js'></script>
