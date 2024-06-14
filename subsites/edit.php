@@ -41,7 +41,7 @@ if($_SESSION['error']) {
     $_SESSION['error']=0;
 }
 ?>
-    <div class="popup-content" style="display: flex">
+    <div class="popup-content" style="display: flex;justify-content: space-evenly;">
         <div class="left-content">
             <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
@@ -65,7 +65,7 @@ if($_SESSION['error']) {
             else{
                 echo $_SESSION['awatar'];
             }
-            ?>" alt="Avatar" class="avatar" style="width: 100%">
+            ?>" alt="Avatar" class="avatar" style="width: 300px; height: 300px;">
              <div class="form-group">
                 <input class="form-control" type="file" name="uploadfile" value="" />
              </div>
