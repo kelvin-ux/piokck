@@ -83,13 +83,13 @@ if($_SESSION['error']) {
         </form>
     </div>
     <div class="popup-content">
-        <form action="../log/dodaj_korki.php" method="post">
+        <form id="addEditForm1" action="../log/dodaj_korki.php" method="post">
             <label for="tytul">Tytul</label>
             <input type="text" id="tytul" name="tytul" required>
             <label for="data">Data</label>
             <input type="date" id="data" name="data" required>
             <label for="miejscowosc">Miejscowosc</label>
-            <input type="text" id="miejscowość" name="miejscowosc" required>
+            <input type="text" id="miejscowosc" name="miejscowosc" required>
             <label for="opis">Opis</label>
             <textarea id="opis" name="opis" rows="5" style="width:100%; margin-bottom: 10px"> </textarea>
             <label for="kontakt">Kontakt</label>
@@ -97,18 +97,27 @@ if($_SESSION['error']) {
             <button type="submit">Dodaj/edytuj korki</button>
         </form>
         <label for="id_korkow">ID korkow</label>
-        <form action="../log/register.php" method="post">
-            <select>
-                <option disabled selected value></option>
-                <option>Opcja 1</option>
-                <option>Opcja 2</option>
-                <option>Opcja 3</option>
+        <form id="addEditForm2" action="#" method="post">
+            <select class='nameItems' id="korki" name="selection">
+                <option selected value></option>
+                <?php
+                $mysqli = new mysqli("localhost", "root", "", "kck_pio");
+
+                $result = "SELECT * FROM korki WHERE ID_uzytkownika= ".$_SESSION['id'];
+                $runquery = mysqli_query($mysqli,$result);
+                while($row = mysqli_fetch_assoc($runquery)){
+                    $val = $row['ID_korkow'];
+                    echo '<option value="'.$row['ID_korkow'] .'"data-tytul="'.$row['Tytul'].'"data-date="'.$row['Data'].'"data-opis="'.$row['Opis'].'"data-kontakt="'.$row['Kontakt'].'"data-miejscowosc="'.$row['Miejscowość'].'">' . $row['ID_korkow'] . '</option>';
+                }
+
+                ?>
             </select>
             <button type="submit">Usuń korki</button>
         </form>
     </div>
 
 <footer>&copy; 2024 Poly. All rights reserved</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const closeError = document.getElementById("close-error");
@@ -130,6 +139,37 @@ if($_SESSION['error']) {
             }
         });
     });
+    $().ready(function() {
+        $("#korki").change(function() {
+            let selectedOption = $(this).find("option:selected");
+            let idKorkow = selectedOption.val();
+            let date = selectedOption.data("date");
+            let opis = selectedOption.data("opis");
+            let kontakt = selectedOption.data("kontakt");
+            let miejscowosc = selectedOption.data("miejscowosc");
+            let tytul = selectedOption.data("tytul");
+
+            if (idKorkow) {
+                $("#data").val(date);
+                $("#opis").val(opis);
+                $("#kontakt").val(kontakt);
+                $("#miejscowosc").val(miejscowosc);
+                $("#tytul").val(tytul);
+                $("form#addEditForm1").attr("action", "../log/edit_korki.php?id=" + idKorkow);
+                $("form#addEditForm2").attr("action", "../log/delete_korki.php?id=" + idKorkow);
+            } else {
+                $("#data").val('');
+                $("#opis").val('');
+                $("#kontakt").val('');
+                $("#miejscowosc").val('');
+                $("#tytul").val('');
+                $("form#addEditForm1").attr("action", "../log/dodaj_korki.php");
+                $("form#addEditForm2").attr("action", "#");
+
+            }
+        });
+    });
+
 </script>
 </body>
 
