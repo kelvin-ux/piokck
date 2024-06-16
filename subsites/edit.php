@@ -97,7 +97,7 @@ if($_SESSION['error']) {
             <button type="submit">Dodaj/edytuj korki</button>
         </form>
         <label for="id_korkow">ID korkow</label>
-        <form id="addEditForm2" action="#" method="post">
+        <form id="addEditForm2" action="#" method="post" onsubmit="return confirmSubmission();">
             <select class='nameItems' id="korki" name="selection">
                 <option selected value></option>
                 <?php
@@ -169,7 +169,9 @@ if($_SESSION['error']) {
             }
         });
     });
-
+    function confirmSubmission() {
+        return confirm("Czy jesteś pewny że chcesz usunąć te korki?");
+    }
 </script>
 </body>
 
