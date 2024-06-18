@@ -3,68 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Edycja ogłoszeń - Poly</title>
+    <title>Panel Administratora - Ogłoszenia</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        .announcement {
-            margin-bottom: 2rem;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0b0e27; /* Nowy kolor tła */
         }
 
-        .content {
-            margin-top: 4rem;
+        .admin-panel {
+            background-color: #1a1d3f;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            color: white;
+            width: 50%;
+            max-width: 800px;
         }
 
-        .nav-left a:first-child {
-            margin-right: 1rem;
+        .admin-panel h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .admin-panel form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-panel label {
+            margin-bottom: 10px;
+        }
+
+        .admin-panel input[type="text"],
+        .admin-panel input[type="number"],
+        .admin-panel textarea {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .admin-panel button {
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .admin-panel button:hover {
+            background-color: #45a049;
+        }
+
+        .admin-panel a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #ff5b60; /* Kolor obramowania */
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #ff5b60; /* Kolor tła */
+            transition: background-color 0.3s ease;
+        }
+
+        .admin-panel a:hover {
+            background-color: #ff3e47; /* Kolor tła po najechaniu */
+            border-color: #ff3e47; /* Kolor obramowania po najechaniu */
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-left">
-                <li><a href="../index.php"><i class="fas fa-home"></i></a></li>
-                <li><a href="info.php">Ogłoszenia</a></li>
-                <li><a href="korepetycje.php">Korki</a></li>
-                <li><a href="metody.php">Metody Nauczania</a></li>
-            </ul>
-            <ul class="nav-right">
-                <li><a href="edycja_ogloszen.php" class="active">Edycja ogłoszeń</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <div class="content">
-        <h1 style="margin-top: 0;">Edycja ogłoszeń</h1>
+<div class="admin-panel">
+    <h2>Panel Administratora - Ogłoszenia</h2>
+
+    <!-- Formularz dodawania ogłoszenia -->
+    <form action="dodaj_ogloszenie.php" method="post">
+        <label for="tytul">Tytuł ogłoszenia:</label>
+        <input type="text" id="tytul" name="tytul" required>
         
-        <!-- Formularz do dodawania ogłoszeń -->
-        <section class="announcement">
-            <form action="process_edit.php" method="post">
-                <label for="tytul">Tytuł ogłoszenia:</label>
-                <input type="text" id="tytul" name="tytul" required>
-                
-                <label for="Opis">Opis ogłoszenia:</label>
-                <textarea id="Opis" name="Opis" required></textarea>
-                
-                <label for="Zdjecie">Ścieżka do zdjęcia:</label>
-                <input type="text" id="Zdjecie" name="Zdjecie" required>
-                
-                <button type="submit">Dodaj ogłoszenie</button>
-            </form>
-        </section>
+        <label for="opis">Opis ogłoszenia:</label>
+        <textarea id="opis" name="opis" rows="5" required></textarea>
+        
+        <label for="zdjecie">Ścieżka do zdjęcia:</label>
+        <input type="text" id="zdjecie" name="zdjecie" required>
+        
+        <button type="submit">Dodaj ogłoszenie</button>
+    </form>
 
-        <!-- Formularz do usuwania ogłoszeń -->
-        <section class="announcement">
-            <form action="process_edit.php" method="post">
-                <label for="delete_id">ID ogłoszenia do usunięcia:</label>
-                <input type="number" id="delete_id" name="delete_id" required min="0">
-                <button type="submit">Usuń ogłoszenie</button>
-            </form>
-        </section>
-    </div>
+    <hr>
 
-    <footer class="footer">&copy; 2024 Poly. All rights reserved</footer>
+    <!-- Formularz usuwania ogłoszenia -->
+    <form action="usun_ogloszenie.php" method="post">
+        <label for="delete_id">ID ogłoszenia do usunięcia:</label>
+        <select id="delete_id" name="id_ogloszenia">
+            <?php
+            $mysqli = new mysqli("localhost", "root", "", "kck_pio");
+            if ($mysqli->connect_error) {
+                die("Connection failed: " . $mysqli->connect_error);
+            }
+
+            $result = $mysqli->query("SELECT ID_ogloszenia, tytul FROM ogloszenia");
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '<option value="' . $row['ID_ogloszenia'] . '">' . $row['ID_ogloszenia'] . ' - ' . $row['tytul'] . '</option>';
+                }
+            } else {
+                echo '<option value="">Brak ogłoszeń</option>';
+            }
+            $mysqli->close();
+            ?>
+        </select>
+        <button type="submit" onclick="return confirm('Czy na pewno chcesz usunąć to ogłoszenie?')">Usuń ogłoszenie</button>
+    </form>
+
+    <!-- Link do powrotu do podstrony ogłoszenia -->
+    <a href="info.php?id=" class="back-link">Powrót</a>
+</div>
+
 </body>
 </html>

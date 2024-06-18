@@ -41,7 +41,7 @@ if($_SESSION['error']) {
     $_SESSION['error']=0;
 }
 ?>
-    <div class="popup-content" style="display: flex">
+    <div class="popup-content" style="display: flex;justify-content: space-evenly;">
         <div class="left-content">
             <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
@@ -49,7 +49,7 @@ if($_SESSION['error']) {
                 <label for="nazwisko">Nazwisko:</label>
                 <input type="text" id="nazwisko" name="nazwisko" value="<?php echo $_SESSION['nazwisko']; ?>" required>
                 <label for="rok_studiow">Rok studiów:</label>
-                <input type="text" id="rok_studiow" name="rok_studiow" value="<?php echo $_SESSION['rok']; ?>" required>
+                <input type="number" id="rok_studiow" name="rok_studiow" value="<?php echo $_SESSION['rok']; ?>" required>
                 <label for="kierunek">Kierunek:</label>
                 <input type="text" id="kierunek" name="kierunek" value="<?php echo $_SESSION['kierunek']; ?>" required>
                 <button type="submit">Zastosuj zmiany</button>
@@ -65,7 +65,7 @@ if($_SESSION['error']) {
             else{
                 echo $_SESSION['awatar'];
             }
-            ?>" alt="Avatar" class="avatar" style="width: 100%">
+            ?>" alt="Avatar" class="avatar" style="width: 300px; height: 300px;">
              <div class="form-group">
                 <input class="form-control" type="file" name="uploadfile" value="" />
              </div>
@@ -83,28 +83,41 @@ if($_SESSION['error']) {
         </form>
     </div>
     <div class="popup-content">
-        <form action="../log/register.php" method="post">
+        <form id="addEditForm1" action="../log/dodaj_korki.php" method="post">
             <label for="tytul">Tytul</label>
             <input type="text" id="tytul" name="tytul" required>
             <label for="data">Data</label>
             <input type="date" id="data" name="data" required>
             <label for="miejscowosc">Miejscowosc</label>
-            <input type="text" id="miejscowość" name="miejscowosc" required>
+            <input type="text" id="miejscowosc" name="miejscowosc" required>
             <label for="opis">Opis</label>
             <textarea id="opis" name="opis" rows="5" style="width:100%; margin-bottom: 10px"> </textarea>
+            <label for="kontakt">Kontakt</label>
+            <input type="text" id="kontakt" name="kontakt" required>
             <button type="submit">Dodaj/edytuj korki</button>
         </form>
-        <form action="../log/register.php" method="post">
-            <select>
-                <option>Opcja 1</option>
-                <option>Opcja 2</option>
-                <option>Opcja 3</option>
+        <label for="id_korkow">ID korkow</label>
+        <form id="addEditForm2" action="#" method="post" onsubmit="return confirmSubmission();">
+            <select class='nameItems' id="korki" name="selection">
+                <option selected value></option>
+                <?php
+                $mysqli = new mysqli("localhost", "root", "", "kck_pio");
+
+                $result = "SELECT * FROM korki WHERE ID_uzytkownika= ".$_SESSION['id'];
+                $runquery = mysqli_query($mysqli,$result);
+                while($row = mysqli_fetch_assoc($runquery)){
+                    $val = $row['ID_korkow'];
+                    echo '<option value="'.$row['ID_korkow'] .'"data-tytul="'.$row['Tytul'].'"data-date="'.$row['Data'].'"data-opis="'.$row['Opis'].'"data-kontakt="'.$row['Kontakt'].'"data-miejscowosc="'.$row['Miejscowość'].'">' . $row['ID_korkow'] . '</option>';
+                }
+
+                ?>
             </select>
             <button type="submit">Usuń korki</button>
         </form>
     </div>
 
 <footer>&copy; 2024 Poly. All rights reserved</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const closeError = document.getElementById("close-error");
@@ -126,6 +139,39 @@ if($_SESSION['error']) {
             }
         });
     });
+    $().ready(function() {
+        $("#korki").change(function() {
+            let selectedOption = $(this).find("option:selected");
+            let idKorkow = selectedOption.val();
+            let date = selectedOption.data("date");
+            let opis = selectedOption.data("opis");
+            let kontakt = selectedOption.data("kontakt");
+            let miejscowosc = selectedOption.data("miejscowosc");
+            let tytul = selectedOption.data("tytul");
+
+            if (idKorkow) {
+                $("#data").val(date);
+                $("#opis").val(opis);
+                $("#kontakt").val(kontakt);
+                $("#miejscowosc").val(miejscowosc);
+                $("#tytul").val(tytul);
+                $("form#addEditForm1").attr("action", "../log/edit_korki.php?id=" + idKorkow);
+                $("form#addEditForm2").attr("action", "../log/delete_korki.php?id=" + idKorkow);
+            } else {
+                $("#data").val('');
+                $("#opis").val('');
+                $("#kontakt").val('');
+                $("#miejscowosc").val('');
+                $("#tytul").val('');
+                $("form#addEditForm1").attr("action", "../log/dodaj_korki.php");
+                $("form#addEditForm2").attr("action", "#");
+
+            }
+        });
+    });
+    function confirmSubmission() {
+        return confirm("Czy jesteś pewny że chcesz usunąć te korki?");
+    }
 </script>
 </body>
 
