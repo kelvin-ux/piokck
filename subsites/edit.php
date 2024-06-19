@@ -41,8 +41,10 @@ if($_SESSION['error']) {
     $_SESSION['error']=0;
 }
 ?>
+
     <div class="popup-content" style="display: flex;justify-content: space-evenly;">
         <div class="left-content">
+            <h1>Profil</h1>
             <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
                 <input type="text" id="imie" name="imie" value="<?php echo $_SESSION['imie']; ?>" required>
@@ -91,6 +93,7 @@ if($_SESSION['error']) {
 </script>
 
     <div class="popup-content">
+        <h2>Hasło</h2>
         <form action="../log/edit_pswd.php" method="post">
             <label for="haslo">Hasło:</label>
             <input type="password" id="haslo" name="haslo" required>
@@ -100,6 +103,7 @@ if($_SESSION['error']) {
         </form>
     </div>
     <div class="popup-content">
+        <h2>Korki</h2>
         <form id="addEditForm1" action="../log/dodaj_korki.php" method="post">
             <label for="tytul">Tytul</label>
             <input type="text" id="tytul" name="tytul" required>
