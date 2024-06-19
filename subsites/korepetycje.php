@@ -139,106 +139,34 @@
         <section id="tutoring">
             <h1>Korepetycje</h1>
             <div class="tutoring-list">
-                <div class="tutoring-item">
-                    <img src="../images/matematyka.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Matematyka</h2>
-                        <p>Data: 15 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z matematyki na poziomie szkoły średniej. Pomogę przygotować się do matury oraz zrozumieć trudne zagadnienia.</p>
-                        <p>Wolne Godziny: <br>Poniedziałek 13.00, 18.00<br> Piątek 11.00 12.00</p>
-                        <p><br>Kontakt: 111 222 333 Discord: abcdefg</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../images/fizyka.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Fizyka</h2>
-                        <p>Data: 20 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Prowadzę korepetycje z fizyki dla uczniów szkoły średniej. Skuteczne przygotowanie do egzaminów i pomoc w bieżących problemach.</p>
-                        <p>Wolne Godziny: <br>Wtorek 14.00, 17.00<br> Czwartek 10.00, 15.00</p>
-                        <p><br>Kontakt: 123 456 789 Discord: xyzabc</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../images/ang.png" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Język Angielski</h2>
-                        <p>Data: 25 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z języka angielskiego na każdym poziomie zaawansowania. Przygotowanie do egzaminów, konwersacje, pomoc w zadaniach domowych.</p>
-                        <p>Wolne Godziny: <br>Środa 11.00, 16.00<br> Sobota 09.00, 13.00</p>
-                        <p><br>Kontakt: 987 654 321 Discord: pqrsuvw</p>
-                    </div>
-                </div>
-                <!-- Dodane korepetycje -->
-                <div class="tutoring-item">
-                    <img src="../images/chemia.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Chemia</h2>
-                        <p>Data: 18 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z chemii dla uczniów szkół średnich. Przygotowanie do egzaminów maturalnych oraz pomoc w zrozumieniu trudnych zagadnień.</p>
-                        <p>Wolne Godziny: <br>Poniedziałek 09.00, 14.00<br> Piątek 10.00, 15.00</p>
-                        <p><br>Kontakt: 222 333 444 Discord: lmnopqr</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../images/biologia.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Biologia</h2>
-                        <p>Data: 22 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Prowadzę korepetycje z biologii, oferuję pomoc w przygotowaniu do matury oraz wsparcie w codziennej nauce.</p>
-                        <p>Wolne Godziny: <br>Czwartek 13.00, 18.00<br> Niedziela 11.00, 16.00</p>
-                        <p><br>Kontakt: 444 555 666 Discord: uvwxzab</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../images/historia.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Historia</h2>
-                        <p>Data: 28 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z historii na poziomie szkoły średniej. Pomogę w przygotowaniach do egzaminów i zrozumieniu kluczowych wydarzeń historycznych.</p>
-                        <p>Wolne Godziny: <br>Wtorek 08.00, 12.00<br> Piątek 14.00, 17.00</p>
-                        <p><br>Kontakt: 555 666 777 Discord: hijklmn</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../images/geografia.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Geografia</h2>
-                        <p>Data: 30 czerwca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z geografii. Pomoc w przygotowaniu do matury oraz zrozumieniu trudnych zagadnień geograficznych.</p>
-                        <p>Wolne Godziny: <br>Środa 10.00, 15.00<br> Sobota 13.00, 18.00</p>
-                        <p><br>Kontakt: 666 777 888 Discord: opqrst</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../blogimg/s1.png" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Informatyka</h2>
-                        <p>Data: 5 lipca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z informatyki. Pomoc w programowaniu, przygotowanie do olimpiad informatycznych oraz zrozumienie zagadnień technologicznych.</p>
-                        <p>Wolne Godziny: <br>Wtorek 11.00, 17.00<br> Piątek 08.00, 12.00</p>
-                        <p><br>Kontakt: 888 999 000 Discord: ghijklm</p>
-                    </div>
-                </div>
-                <div class="tutoring-item">
-                    <img src="../images/francuski.jpg" alt="Tutor Image" class="tutoring-img">
-                    <div class="tutoring-text">
-                        <h2>Język Francuski</h2>
-                        <p>Data: 10 lipca 2024</p>
-                        <p>Miejscowość: Łódź</p>
-                        <p>Opis: Oferuję korepetycje z języka francuskiego. Pomoc w przygotowaniach do egzaminów, konwersacje oraz pomoc w codziennych zadaniach domowych.</p>
-                        <p>Wolne Godziny: <br>Poniedziałek 12.00, 16.00<br> Czwartek 09.00, 14.00</p>
-                        <p><br>Kontakt: 777 888 999 Discord: abcdef</p>
-                    </div>
-                </div>
+                <?php
+                $mysqli = new mysqli("localhost", "root", "", "kck_pio");
+
+                $sql = "SELECT k.Tytul, k.Opis, k.Data, k.Miejscowość, k.Kontakt, u.Profil FROM korki k JOIN uzytkownicy u ON k.ID_uzytkownika=u.ID_uzytkownika";
+                $result = $mysqli->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='tutoring-item'>";
+                        $profil = $row["Profil"];
+                        if($profil==null){
+                            $profil='avatar5.png';
+                        }
+                        echo "<img src='../images/" . $profil . "' alt='" . $row['Tytul'] . "' class='tutoring-img'>";
+                        echo "<div class='announcement-text'>";
+                        echo "<h2>" . $row['Tytul'] . "</h2>";
+                        echo "<p>Data: " . substr($row['Data'], 0, 200) . "</p>";
+                        echo "<p>Miejscowość: " . substr($row['Miejscowość'], 0, 200) . "</p>";
+                        echo "<p>Opis: " . substr($row['Opis'], 0, 200) . "</p>";
+                        echo "<p>Kontakt: " . substr($row['Kontakt'], 0, 200) . "</p>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "tutoring-text";
+                }
+                ?>
+                
             </div>
         </section>
     </div>
