@@ -56,7 +56,7 @@ if($_SESSION['error']) {
             </form>
         </div>
         <div>
-            <form method="POST" action="../log/edit_awatar.php" enctype="multipart/form-data">
+            <form method="POST" action="../log/edit_awatar.php" enctype="multipart/form-data" onsubmit="return validateFileSize()">
 
             <img src="../images/<?php
             if($_SESSION['awatar']==null){
@@ -73,6 +73,23 @@ if($_SESSION['error']) {
             </form>
         </div>
     </div>
+
+<script>
+    function validateFileSize() {
+        var fileInput = document.querySelector('input[type="file"]');
+        var maxFileSize = 2 * 1024 * 1024; // 2 MB
+
+        if (fileInput.files.length > 0) {
+            var fileSize = fileInput.files[0].size;
+            if (fileSize > maxFileSize) {
+                alert("Plik jest za duży. Maksymalny dozwolony rozmiar to 2 MB.");
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+
     <div class="popup-content">
         <form action="../log/edit_pswd.php" method="post">
             <label for="haslo">Hasło:</label>
@@ -107,7 +124,7 @@ if($_SESSION['error']) {
                 $runquery = mysqli_query($mysqli,$result);
                 while($row = mysqli_fetch_assoc($runquery)){
                     $val = $row['ID_korkow'];
-                    echo '<option value="'.$row['ID_korkow'] .'"data-tytul="'.$row['Tytul'].'"data-date="'.$row['Data'].'"data-opis="'.$row['Opis'].'"data-kontakt="'.$row['Kontakt'].'"data-miejscowosc="'.$row['Miejscowość'].'">' . $row['ID_korkow'] . '</option>';
+                    echo '<option value="'.$row['ID_korkow'] .'"data-tytul="'.$row['Tytul'].'"data-date="'.$row['Data'].'"data-opis="'.$row['Opis'].'"data-kontakt="'.$row['Kontakt'].'"data-miejscowosc="'.$row['Miejscowość'].'">' . $row['ID_korkow'] . ' - '. $row['Tytul']. '</option>';
                 }
 
                 ?>

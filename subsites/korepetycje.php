@@ -166,7 +166,7 @@
                     echo "tutoring-text";
                 }
                 ?>
-                
+
             </div>
         </section>
     </div>
