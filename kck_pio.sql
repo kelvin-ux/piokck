@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 17 Cze 2024, 18:14
+-- Czas generowania: 19 Cze 2024, 14:10
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.1.2
 
@@ -42,8 +42,10 @@ CREATE TABLE `korki` (
 --
 
 INSERT INTO `korki` (`ID_korkow`, `Tytul`, `Opis`, `Data`, `Miejscowość`, `ID_uzytkownika`, `Kontakt`) VALUES
-(1, 'Matematyka', ' cokolwiek', '2024-06-27', 'Łódź', 19, '111 222 333 Discord: abcdefg'),
-(3, 'rtdfju', ' gfdj', '2024-06-18', 'dj', 19, 'djgdf');
+(1, 'Matematyka', 'Oferuję korepetycje z matematyki na poziomie szkoły średniej. Pomogę przygotować się do matury oraz zrozumieć trudne zagadnienia.', '2024-06-27', 'Łódź', 19, '111 222 333 Discord: abcdefg'),
+(3, 'Fizyka', 'Prowadzę korepetycje z fizyki dla uczniów szkoły średniej. Skuteczne przygotowanie do egzaminów i pomoc w bieżących problemach.', '2024-06-18', 'Łódź', 19, '111 222 333 Discord: abcdefg'),
+(4, 'Język Angielski', 'Oferuję korepetycje z języka angielskiego na każdym poziomie zaawansowania. Przygotowanie do egzaminów, konwersacje, pomoc w zadaniach domowych.', '2024-06-20', 'Łódź', 19, '987 654 321 Discord: pqrsuvw'),
+(5, 'Chemia', 'Oferuję korepetycje z chemii dla uczniów szkół średnich. Przygotowanie do egzaminów maturalnych oraz pomoc w zrozumieniu trudnych zagadnień.', '2024-06-28', 'Łódź', 5, '222 333 444 Discord: lmnopqr');
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,7 @@ CREATE TABLE `uzytkownicy` (
 INSERT INTO `uzytkownicy` (`ID_uzytkownika`, `typ`, `Imie`, `Nazwisko`, `Email`, `Haslo`, `Rok_studiow`, `Kierunek`, `Profil`) VALUES
 (5, 1, 'Michał', 'Urbaniak', 'admin@wp.pl', '$2y$10$KVEa2GeYsmshJtBcFaJBHe5tszweeyRE1RXYZVlNX2sd.IOGGN2HO', 2, 'Informatyka', NULL),
 (6, 0, 'Jan', 'Nowak', 'uzytkownik@wp.pl', '$2y$10$i1v0mk6V80E.DyWwAOy2lOLdPQCuvHVl2JXt.w7TkOuakse0uOlfK', 1, 'Informatyka', NULL),
-(19, 1, 'Owner123', 'owner', 'admin@vp.pl', '$2y$10$EycPfcaQYBnNuysGhHIVHOp.AJy61KT1VSzpNyl5Bm3Pbsjzk9KDa', 2, 'OWNER', NULL);
+(19, 1, 'Owner', 'Owner', 'admin@vp.pl', '$2y$10$EycPfcaQYBnNuysGhHIVHOp.AJy61KT1VSzpNyl5Bm3Pbsjzk9KDa', 2, 'Informatyka', NULL);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -129,7 +131,7 @@ ALTER TABLE `uzytkownicy`
 -- AUTO_INCREMENT dla tabeli `korki`
 --
 ALTER TABLE `korki`
-  MODIFY `ID_korkow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_korkow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `ogloszenia`
