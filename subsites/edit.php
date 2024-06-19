@@ -7,6 +7,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='../styles.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .box-title {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+    </style>
 </head>
 <?php session_start();?>
 <body <?php if($_SESSION['error'])echo'class="popup-open"' ?>>
@@ -43,6 +51,7 @@ if($_SESSION['error']) {
 ?>
     <div class="popup-content" style="display: flex;justify-content: space-evenly;">
         <div class="left-content">
+            <h3 class="box-title">Edycja profilu</h3>
             <form action="../log/edit_profile.php" method="post">
                 <label for="imie">Imię:</label>
                 <input type="text" id="imie" name="imie" value="<?php echo $_SESSION['imie']; ?>" required>
@@ -56,6 +65,7 @@ if($_SESSION['error']) {
             </form>
         </div>
         <div>
+            <h3 class="box-title">Zmiana awatara</h3>
             <form method="POST" action="../log/edit_awatar.php" enctype="multipart/form-data">
 
             <img src="../images/<?php
@@ -74,6 +84,7 @@ if($_SESSION['error']) {
         </div>
     </div>
     <div class="popup-content">
+        <h3 class="box-title">Zmiana hasła</h3>
         <form action="../log/edit_pswd.php" method="post">
             <label for="haslo">Hasło:</label>
             <input type="password" id="haslo" name="haslo" required>
@@ -83,6 +94,7 @@ if($_SESSION['error']) {
         </form>
     </div>
     <div class="popup-content">
+        <h3 class="box-title">Dodaj/edytuj korepetycje</h3>
         <form id="addEditForm1" action="../log/dodaj_korki.php" method="post">
             <label for="tytul">Tytul</label>
             <input type="text" id="tytul" name="tytul" required>

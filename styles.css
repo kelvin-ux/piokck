@@ -640,3 +640,20 @@ header ul li a.active {
   margin-top: 20px;
   text-align: right;
 }
+
+#password-requirements {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+}
+
+#password-requirements li {
+  color: #666;
+}
+
+#password-requirements ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+

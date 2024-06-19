@@ -109,6 +109,7 @@
             <input type="email" id="email" name="email" required>
             <label for="haslo">Hasło:</label>
             <input type="password" id="haslo" name="haslo" required>
+            <small>Hasło musi mieć co najmniej 8 znaków, zawierać co najmniej jedną cyfrę oraz jeden znak specjalny.</small>
             <label for="confirm_haslo">Potwierdź Hasło:</label>
             <input type="password" id="confirm_haslo" name="confirm_haslo" required>
             <label for="rok_studiow">Rok studiów:</label>
@@ -120,6 +121,7 @@
         <div id="register-error" class="error-message"></div>
     </div>
 </div>
+
 
 
 <script>   
