@@ -34,9 +34,26 @@
 if($_SESSION['error']) {
     echo '<div id="error-popup" class="popup" style="display: block;">
     <div class="popup-content" >
-        <span class="close-btn" id="close-error">&times;</span>
-        <h1>Podane hasła nie są takie same!</h1>
-    </div>
+        <span class="close-btn" id="close-error">&times;</span>';
+        if($_SESSION['error']==1){
+           echo '<h1>Hasło musi mieć minimum 8 znaków.</h1>';
+        }elseif($_SESSION['error']==2){
+            echo '<h1>Hasło musi zawierać co najmniej 1 liczbę.</h1>';
+        }elseif($_SESSION['error']==3){
+            echo '<h1>Hasło musi zawierać co najmniej 1 dużą literę.</h1>';
+        }elseif($_SESSION['error']==4){
+            echo '<h1>Hasło musi zawierać co najmniej 1 znak specjalny.</h1>';
+        }elseif($_SESSION['error']==5){
+            echo '<h1>Podane hasła nie są takie same!</h1>';
+        }elseif($_SESSION['error']==6){
+            echo '<h1>Imię musi mieć od 3 do 32 znaków.</h1>';
+        }elseif($_SESSION['error']==7){
+            echo '<h1>Nazwisko musi mieć od 3 do 32 znaków.</h1>';
+        }elseif($_SESSION['error']==8){
+            echo '<h1>Rok studiów musi być liczbą z zakresu od 1 do 12.</h1>';
+        }
+
+    echo'</div>
     </div>';
     $_SESSION['error']=0;
 }
