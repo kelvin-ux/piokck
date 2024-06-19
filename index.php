@@ -17,7 +17,7 @@
                 <li><a href="index.php"><i class="fas fa-home"></i></a></li>
                 <li><a href="subsites/info.php">Ogłoszenia</a></li>
                 <li><a href="subsites/korepetycje.php">Korki</a></li>
-                <li><a href="subsites/metody.php">Metody Nauczanie</a></li>
+                <li><a href="subsites/metody.php">Metody Nauczania</a></li>
             </ul>
             <ul class="nav-right">
                 <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
@@ -102,16 +102,24 @@
         <h2>Zarejestruj się</h2>
         <form id="register-form">
             <label for="imie">Imię:</label>
+            <p>Imię musi mieć od 3 do 32 znaków.</p>
             <input type="text" id="imie" name="imie" required>
             <label for="nazwisko">Nazwisko:</label>
+            <p>Nazwisko musi mieć od 3 do 32 znaków.</p>
             <input type="text" id="nazwisko" name="nazwisko" required>
             <label for="email">Email:</label>
+            <p>Imię musi mieć od 3 do 32 znaków.</p>
             <input type="email" id="email" name="email" required>
             <label for="haslo">Hasło:</label>
+            <p>Hasło musi mieć minimum 8 znaków.</p>
+            <p>Hasło musi zawierać co najmniej 1 liczbę.</p>
+            <p>Hasło musi zawierać co najmniej 1 dużą literę.</p>
+            <p>Hasło musi zawierać co najmniej 1 znak specjalny.</p>
             <input type="password" id="haslo" name="haslo" required>
             <label for="confirm_haslo">Potwierdź Hasło:</label>
             <input type="password" id="confirm_haslo" name="confirm_haslo" required>
             <label for="rok_studiow">Rok studiów:</label>
+            <p>Rok studiów musi być liczbą z zakresu od 1 do 12.</p>
             <input type="number" id="rok_studiow" name="rok_studiow" required>
             <label for="kierunek">Kierunek:</label>
             <input type="text" id="kierunek" name="kierunek" required>
