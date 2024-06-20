@@ -152,6 +152,7 @@
                         if($profil==null){
                             $profil='avatar5.png';
                         }
+
                         echo "<img src='../images/" . $profil . "' alt='" . $row['Tytul'] . "' class='tutoring-img'>";
                         echo "<div class='announcement-text'>";
                         echo "<h2>" . $row['Tytul'] . "</h2>";
